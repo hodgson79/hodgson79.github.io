@@ -4,27 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patrick M. Hodgson Sr. | Culture Scientist. AI Governance Architect. Builder.</title>
-    <meta name="description" content="Patrick M. Hodgson Sr. — Director of Culture Strategy & Insights. Author of The Authenticity Algorithm. Speaker. Builder of frameworks that connect people, technology, and value.">
+    <meta name="description" content="Patrick M. Hodgson Sr. — Culture Scientist, AI Governance Architect, and Builder. Stop trying to build one AI strategy. Build three engines. Creator of The Authenticity Algorithm and five trademarked frameworks.">
+    <meta name="author" content="Patrick M. Hodgson Sr.">
+    <link rel="canonical" href="https://authenticityalgorithm.com">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Patrick M. Hodgson Sr. — Culture Scientist. AI Governance Architect. Builder.">
+    <meta property="og:description" content="Five frameworks. One unified discipline. Stop trying to build one AI strategy. Build three engines.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://authenticityalgorithm.com">
+    <meta property="og:image" content="https://authenticityalgorithm.com/og-image.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Patrick M. Hodgson Sr. — Culture Scientist. AI Governance Architect. Builder.">
+    <meta name="twitter:description" content="Five frameworks. One unified discipline. Stop trying to build one AI strategy. Build three engines.">
+    <meta name="twitter:image" content="https://authenticityalgorithm.com/og-image.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Patrick M. Hodgson Sr.",
+      "jobTitle": "Director of Culture Strategy & Insights",
+      "description": "Culture Scientist, AI Governance Architect, and Builder. Creator of The Authenticity Algorithm, PeoplePowered, Voice to Value, ValueAI, and CourageLed frameworks.",
+      "url": "https://authenticityalgorithm.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/patrickhodgson"
+      ],
+      "alumniOf": [
+        {"@type": "EducationalOrganization", "name": "San Francisco State University"},
+        {"@type": "EducationalOrganization", "name": "Golden Gate University"},
+        {"@type": "EducationalOrganization", "name": "San Jose State University"},
+        {"@type": "EducationalOrganization", "name": "Stanford Graduate School of Business"}
+      ],
+      "knowsAbout": ["Culture Strategy", "AI Governance", "Organizational Development", "Enterprise Listening", "Leadership Development"]
+    }
+    </script>
+
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav class="nav">
+    <!-- Skip Link -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
         <div class="nav-inner">
             <a href="#" class="nav-logo">PMH</a>
-            <ul class="nav-links">
+            <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
                 <li><a href="#framework">Framework</a></li>
                 <li><a href="#speaking">Speaking</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#book">Book</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#inquire" class="nav-cta">Let's Connect</a></li>
             </ul>
         </div>
     </nav>
+
+    <main id="main">
 
     <!-- Hero -->
     <header class="hero" id="hero">
@@ -33,25 +86,50 @@
             <h1 class="hero-title">Patrick M. Hodgson Sr.</h1>
             <p class="hero-subtitle">Culture Scientist. AI Governance Architect. Builder.</p>
             <div class="hero-rule"></div>
-            <p class="hero-tagline">Connecting people, technology, and measurable value.</p>
-            <a href="#framework" class="btn">Explore the Framework</a>
+            <p class="hero-tagline">"Stop trying to build one AI strategy. Build three engines."</p>
+            <div class="hero-ctas">
+                <a href="#framework" class="btn btn-gold">Explore the Framework</a>
+                <a href="#inquire" class="btn btn-ghost">Start a Conversation</a>
+            </div>
         </div>
     </header>
 
+    <!-- Social Proof Metrics Bar -->
+    <div class="metrics-bar">
+        <div class="metrics-grid">
+            <div class="metric">
+                <div class="metric-stat">40,000+</div>
+                <div class="metric-label">Professionals Served</div>
+            </div>
+            <div class="metric">
+                <div class="metric-stat">60 &rarr; 72</div>
+                <div class="metric-label">Culture Index Improvement</div>
+            </div>
+            <div class="metric">
+                <div class="metric-stat">500,000</div>
+                <div class="metric-label">Hours of AI Impact</div>
+            </div>
+            <div class="metric">
+                <div class="metric-stat">5</div>
+                <div class="metric-label">Trademarked Frameworks</div>
+            </div>
+        </div>
+    </div>
+
     <!-- About -->
-    <section class="section" id="about">
+    <section class="section section-white fade-section" id="about">
         <div class="container">
             <h2 class="section-title">About</h2>
             <div class="about-grid">
                 <div class="about-text">
-                    <p>I am a Director of Culture Strategy &amp; Insights at PG&amp;E, building toward becoming the CHRO of the AI era. My work sits at the intersection of organizational culture, enterprise listening, and AI governance &mdash; the spaces where human intention meets technological capability.</p>
+                    <p>I am a Director of Culture Strategy &amp; Insights at a Fortune 500 utility, building toward becoming the CHRO of the AI era. My work sits at the intersection of organizational culture, enterprise listening, and AI governance &mdash; the spaces where human intention meets technological capability.</p>
                     <p>Over the course of my career, I have developed five branded intellectual property frameworks that form a unified system for transforming how organizations listen, lead, and create value. Each framework stands on its own. Together, they form a discipline.</p>
                     <p>I believe that AI which does not pay for itself is not AI. That culture is not a slogan but a measurable system. And that authenticity &mdash; real, operational authenticity &mdash; is the algorithm that makes everything else work.</p>
                 </div>
                 <div class="about-highlights">
                     <div class="highlight">
                         <span class="highlight-label">Current Role</span>
-                        <span class="highlight-value">Director, Culture Strategy &amp; Insights &mdash; PG&amp;E</span>
+                        <span class="highlight-value">Director, Culture Strategy &amp; Insights &mdash; Fortune 500 Utility</span>
                     </div>
                     <div class="highlight">
                         <span class="highlight-label">Trajectory</span>
@@ -71,7 +149,7 @@
     </section>
 
     <!-- Framework -->
-    <section class="section section-dark" id="framework">
+    <section class="section section-sand fade-section" id="framework">
         <div class="container">
             <h2 class="section-title">The Framework</h2>
             <p class="section-intro">Five branded intellectual properties. One integrated discipline.</p>
@@ -80,32 +158,28 @@
                 <div class="card card-accent-1">
                     <div class="card-diagram">
                         <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Circular algorithm/feedback loop with central hub -->
-                            <circle cx="100" cy="70" r="14" fill="#c9a54e" fill-opacity="0.15" stroke="#c9a54e" stroke-width="1.5"/>
+                            <circle cx="100" cy="70" r="14" fill="#c9a54e" fill-opacity="0.2" stroke="#c9a54e" stroke-width="1.5"/>
                             <text x="100" y="74" text-anchor="middle" fill="#c9a54e" font-size="8" font-weight="600">CORE</text>
-                            <!-- Outer nodes -->
-                            <circle cx="100" cy="20" r="10" fill="#c9a54e" fill-opacity="0.1" stroke="#c9a54e" stroke-width="1.2"/>
+                            <circle cx="100" cy="20" r="10" fill="#c9a54e" fill-opacity="0.12" stroke="#c9a54e" stroke-width="1.2"/>
                             <text x="100" y="23" text-anchor="middle" fill="#c9a54e" font-size="6">INPUT</text>
-                            <circle cx="155" cy="50" r="10" fill="#c9a54e" fill-opacity="0.1" stroke="#c9a54e" stroke-width="1.2"/>
+                            <circle cx="155" cy="50" r="10" fill="#c9a54e" fill-opacity="0.12" stroke="#c9a54e" stroke-width="1.2"/>
                             <text x="155" y="53" text-anchor="middle" fill="#c9a54e" font-size="5.5">PROCESS</text>
-                            <circle cx="140" cy="105" r="10" fill="#c9a54e" fill-opacity="0.1" stroke="#c9a54e" stroke-width="1.2"/>
+                            <circle cx="140" cy="105" r="10" fill="#c9a54e" fill-opacity="0.12" stroke="#c9a54e" stroke-width="1.2"/>
                             <text x="140" y="108" text-anchor="middle" fill="#c9a54e" font-size="5.5">OUTPUT</text>
-                            <circle cx="60" cy="105" r="10" fill="#c9a54e" fill-opacity="0.1" stroke="#c9a54e" stroke-width="1.2"/>
+                            <circle cx="60" cy="105" r="10" fill="#c9a54e" fill-opacity="0.12" stroke="#c9a54e" stroke-width="1.2"/>
                             <text x="60" y="108" text-anchor="middle" fill="#c9a54e" font-size="4.5">FEEDBACK</text>
-                            <circle cx="45" cy="50" r="10" fill="#c9a54e" fill-opacity="0.1" stroke="#c9a54e" stroke-width="1.2"/>
+                            <circle cx="45" cy="50" r="10" fill="#c9a54e" fill-opacity="0.12" stroke="#c9a54e" stroke-width="1.2"/>
                             <text x="45" y="53" text-anchor="middle" fill="#c9a54e" font-size="5.5">AUDIT</text>
-                            <!-- Connecting arcs (clockwise arrows) -->
                             <path d="M108 23 L145 44" stroke="#c9a54e" stroke-width="1" stroke-opacity="0.6" marker-end="url(#arrow1)"/>
                             <path d="M158 60 L147 95" stroke="#c9a54e" stroke-width="1" stroke-opacity="0.6" marker-end="url(#arrow1)"/>
                             <path d="M130 108 L70 108" stroke="#c9a54e" stroke-width="1" stroke-opacity="0.6" marker-end="url(#arrow1)"/>
                             <path d="M53 98 L42 60" stroke="#c9a54e" stroke-width="1" stroke-opacity="0.6" marker-end="url(#arrow1)"/>
                             <path d="M52 43 L92 24" stroke="#c9a54e" stroke-width="1" stroke-opacity="0.6" marker-end="url(#arrow1)"/>
-                            <!-- Spokes to center -->
-                            <line x1="100" y1="30" x2="100" y2="56" stroke="#c9a54e" stroke-width="0.7" stroke-opacity="0.3" stroke-dasharray="3 2"/>
-                            <line x1="145" y1="50" x2="114" y2="65" stroke="#c9a54e" stroke-width="0.7" stroke-opacity="0.3" stroke-dasharray="3 2"/>
-                            <line x1="133" y1="100" x2="110" y2="80" stroke="#c9a54e" stroke-width="0.7" stroke-opacity="0.3" stroke-dasharray="3 2"/>
-                            <line x1="67" y1="100" x2="90" y2="80" stroke="#c9a54e" stroke-width="0.7" stroke-opacity="0.3" stroke-dasharray="3 2"/>
-                            <line x1="55" y1="50" x2="86" y2="65" stroke="#c9a54e" stroke-width="0.7" stroke-opacity="0.3" stroke-dasharray="3 2"/>
+                            <line x1="100" y1="30" x2="100" y2="56" stroke="#c9a54e" stroke-width="0.7" stroke-opacity="0.4" stroke-dasharray="3 2"/>
+                            <line x1="145" y1="50" x2="114" y2="65" stroke="#c9a54e" stroke-width="0.7" stroke-opacity="0.4" stroke-dasharray="3 2"/>
+                            <line x1="133" y1="100" x2="110" y2="80" stroke="#c9a54e" stroke-width="0.7" stroke-opacity="0.4" stroke-dasharray="3 2"/>
+                            <line x1="67" y1="100" x2="90" y2="80" stroke="#c9a54e" stroke-width="0.7" stroke-opacity="0.4" stroke-dasharray="3 2"/>
+                            <line x1="55" y1="50" x2="86" y2="65" stroke="#c9a54e" stroke-width="0.7" stroke-opacity="0.4" stroke-dasharray="3 2"/>
                             <defs><marker id="arrow1" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0 0 L6 2 L0 4" fill="none" stroke="#c9a54e" stroke-width="0.8"/></marker></defs>
                         </svg>
                     </div>
@@ -119,43 +193,39 @@
                 <div class="card card-accent-2">
                     <div class="card-diagram">
                         <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Network constellation of people-nodes -->
-                            <!-- Central cluster -->
-                            <circle cx="100" cy="70" r="8" fill="#4ea5c9" fill-opacity="0.2" stroke="#4ea5c9" stroke-width="1.5"/>
-                            <circle cx="60" cy="45" r="6" fill="#4ea5c9" fill-opacity="0.15" stroke="#4ea5c9" stroke-width="1.2"/>
-                            <circle cx="140" cy="45" r="6" fill="#4ea5c9" fill-opacity="0.15" stroke="#4ea5c9" stroke-width="1.2"/>
-                            <circle cx="55" cy="95" r="6" fill="#4ea5c9" fill-opacity="0.15" stroke="#4ea5c9" stroke-width="1.2"/>
-                            <circle cx="145" cy="95" r="6" fill="#4ea5c9" fill-opacity="0.15" stroke="#4ea5c9" stroke-width="1.2"/>
-                            <circle cx="100" cy="25" r="5" fill="#4ea5c9" fill-opacity="0.1" stroke="#4ea5c9" stroke-width="1"/>
-                            <circle cx="100" cy="115" r="5" fill="#4ea5c9" fill-opacity="0.1" stroke="#4ea5c9" stroke-width="1"/>
-                            <!-- Outer satellites -->
-                            <circle cx="30" cy="30" r="4" fill="#4ea5c9" fill-opacity="0.08" stroke="#4ea5c9" stroke-width="0.8"/>
-                            <circle cx="170" cy="30" r="4" fill="#4ea5c9" fill-opacity="0.08" stroke="#4ea5c9" stroke-width="0.8"/>
-                            <circle cx="25" cy="70" r="4" fill="#4ea5c9" fill-opacity="0.08" stroke="#4ea5c9" stroke-width="0.8"/>
-                            <circle cx="175" cy="70" r="4" fill="#4ea5c9" fill-opacity="0.08" stroke="#4ea5c9" stroke-width="0.8"/>
-                            <circle cx="30" cy="115" r="3.5" fill="#4ea5c9" fill-opacity="0.08" stroke="#4ea5c9" stroke-width="0.8"/>
-                            <circle cx="170" cy="115" r="3.5" fill="#4ea5c9" fill-opacity="0.08" stroke="#4ea5c9" stroke-width="0.8"/>
-                            <!-- Connections -->
-                            <line x1="100" y1="70" x2="60" y2="45" stroke="#4ea5c9" stroke-width="0.8" stroke-opacity="0.4"/>
-                            <line x1="100" y1="70" x2="140" y2="45" stroke="#4ea5c9" stroke-width="0.8" stroke-opacity="0.4"/>
-                            <line x1="100" y1="70" x2="55" y2="95" stroke="#4ea5c9" stroke-width="0.8" stroke-opacity="0.4"/>
-                            <line x1="100" y1="70" x2="145" y2="95" stroke="#4ea5c9" stroke-width="0.8" stroke-opacity="0.4"/>
-                            <line x1="100" y1="70" x2="100" y2="25" stroke="#4ea5c9" stroke-width="0.8" stroke-opacity="0.4"/>
-                            <line x1="100" y1="70" x2="100" y2="115" stroke="#4ea5c9" stroke-width="0.8" stroke-opacity="0.4"/>
-                            <line x1="60" y1="45" x2="140" y2="45" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.25"/>
-                            <line x1="55" y1="95" x2="145" y2="95" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.25"/>
-                            <line x1="60" y1="45" x2="55" y2="95" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.25"/>
-                            <line x1="140" y1="45" x2="145" y2="95" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.25"/>
-                            <line x1="60" y1="45" x2="30" y2="30" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.2"/>
-                            <line x1="140" y1="45" x2="170" y2="30" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.2"/>
-                            <line x1="55" y1="95" x2="25" y2="70" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.2"/>
-                            <line x1="145" y1="95" x2="175" y2="70" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.2"/>
-                            <line x1="55" y1="95" x2="30" y2="115" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.2"/>
-                            <line x1="145" y1="95" x2="170" y2="115" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.2"/>
-                            <line x1="100" y1="25" x2="60" y2="45" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.25"/>
-                            <line x1="100" y1="25" x2="140" y2="45" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.25"/>
-                            <line x1="100" y1="115" x2="55" y2="95" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.25"/>
-                            <line x1="100" y1="115" x2="145" y2="95" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.25"/>
+                            <circle cx="100" cy="70" r="8" fill="#4ea5c9" fill-opacity="0.25" stroke="#4ea5c9" stroke-width="1.5"/>
+                            <circle cx="60" cy="45" r="6" fill="#4ea5c9" fill-opacity="0.2" stroke="#4ea5c9" stroke-width="1.2"/>
+                            <circle cx="140" cy="45" r="6" fill="#4ea5c9" fill-opacity="0.2" stroke="#4ea5c9" stroke-width="1.2"/>
+                            <circle cx="55" cy="95" r="6" fill="#4ea5c9" fill-opacity="0.2" stroke="#4ea5c9" stroke-width="1.2"/>
+                            <circle cx="145" cy="95" r="6" fill="#4ea5c9" fill-opacity="0.2" stroke="#4ea5c9" stroke-width="1.2"/>
+                            <circle cx="100" cy="25" r="5" fill="#4ea5c9" fill-opacity="0.15" stroke="#4ea5c9" stroke-width="1"/>
+                            <circle cx="100" cy="115" r="5" fill="#4ea5c9" fill-opacity="0.15" stroke="#4ea5c9" stroke-width="1"/>
+                            <circle cx="30" cy="30" r="4" fill="#4ea5c9" fill-opacity="0.1" stroke="#4ea5c9" stroke-width="0.8"/>
+                            <circle cx="170" cy="30" r="4" fill="#4ea5c9" fill-opacity="0.1" stroke="#4ea5c9" stroke-width="0.8"/>
+                            <circle cx="25" cy="70" r="4" fill="#4ea5c9" fill-opacity="0.1" stroke="#4ea5c9" stroke-width="0.8"/>
+                            <circle cx="175" cy="70" r="4" fill="#4ea5c9" fill-opacity="0.1" stroke="#4ea5c9" stroke-width="0.8"/>
+                            <circle cx="30" cy="115" r="3.5" fill="#4ea5c9" fill-opacity="0.1" stroke="#4ea5c9" stroke-width="0.8"/>
+                            <circle cx="170" cy="115" r="3.5" fill="#4ea5c9" fill-opacity="0.1" stroke="#4ea5c9" stroke-width="0.8"/>
+                            <line x1="100" y1="70" x2="60" y2="45" stroke="#4ea5c9" stroke-width="0.8" stroke-opacity="0.5"/>
+                            <line x1="100" y1="70" x2="140" y2="45" stroke="#4ea5c9" stroke-width="0.8" stroke-opacity="0.5"/>
+                            <line x1="100" y1="70" x2="55" y2="95" stroke="#4ea5c9" stroke-width="0.8" stroke-opacity="0.5"/>
+                            <line x1="100" y1="70" x2="145" y2="95" stroke="#4ea5c9" stroke-width="0.8" stroke-opacity="0.5"/>
+                            <line x1="100" y1="70" x2="100" y2="25" stroke="#4ea5c9" stroke-width="0.8" stroke-opacity="0.5"/>
+                            <line x1="100" y1="70" x2="100" y2="115" stroke="#4ea5c9" stroke-width="0.8" stroke-opacity="0.5"/>
+                            <line x1="60" y1="45" x2="140" y2="45" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.3"/>
+                            <line x1="55" y1="95" x2="145" y2="95" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.3"/>
+                            <line x1="60" y1="45" x2="55" y2="95" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.3"/>
+                            <line x1="140" y1="45" x2="145" y2="95" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.3"/>
+                            <line x1="60" y1="45" x2="30" y2="30" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.25"/>
+                            <line x1="140" y1="45" x2="170" y2="30" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.25"/>
+                            <line x1="55" y1="95" x2="25" y2="70" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.25"/>
+                            <line x1="145" y1="95" x2="175" y2="70" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.25"/>
+                            <line x1="55" y1="95" x2="30" y2="115" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.25"/>
+                            <line x1="145" y1="95" x2="170" y2="115" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.25"/>
+                            <line x1="100" y1="25" x2="60" y2="45" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.3"/>
+                            <line x1="100" y1="25" x2="140" y2="45" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.3"/>
+                            <line x1="100" y1="115" x2="55" y2="95" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.3"/>
+                            <line x1="100" y1="115" x2="145" y2="95" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.3"/>
                         </svg>
                     </div>
                     <span class="card-label">The Organization</span>
@@ -168,41 +238,35 @@
                 <div class="card card-accent-3">
                     <div class="card-diagram">
                         <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Funnel/pipeline: signals narrowing to value -->
-                            <!-- Stage labels -->
                             <text x="30" y="15" text-anchor="middle" fill="#5ec989" font-size="7" font-weight="500">LISTEN</text>
                             <text x="75" y="15" text-anchor="middle" fill="#5ec989" font-size="7" font-weight="500">LEARN</text>
                             <text x="125" y="15" text-anchor="middle" fill="#5ec989" font-size="7" font-weight="500">ACT</text>
                             <text x="172" y="15" text-anchor="middle" fill="#5ec989" font-size="7" font-weight="500">IMPROVE</text>
-                            <!-- Funnel shape -->
-                            <path d="M10 25 L50 25 L50 125 L10 125 Z" fill="#5ec989" fill-opacity="0.08" stroke="#5ec989" stroke-width="1"/>
-                            <path d="M55 35 L95 35 L95 115 L55 115 Z" fill="#5ec989" fill-opacity="0.1" stroke="#5ec989" stroke-width="1"/>
-                            <path d="M100 45 L145 45 L145 105 L100 105 Z" fill="#5ec989" fill-opacity="0.12" stroke="#5ec989" stroke-width="1"/>
-                            <path d="M150 55 L190 55 L190 95 L150 95 Z" fill="#5ec989" fill-opacity="0.18" stroke="#5ec989" stroke-width="1.2"/>
-                            <!-- Signal dots (scattered on left, concentrated on right) -->
-                            <circle cx="20" cy="40" r="2" fill="#5ec989" fill-opacity="0.3"/>
-                            <circle cx="35" cy="55" r="2" fill="#5ec989" fill-opacity="0.3"/>
-                            <circle cx="15" cy="70" r="2" fill="#5ec989" fill-opacity="0.3"/>
-                            <circle cx="40" cy="85" r="2" fill="#5ec989" fill-opacity="0.3"/>
-                            <circle cx="25" cy="100" r="2" fill="#5ec989" fill-opacity="0.3"/>
-                            <circle cx="42" cy="45" r="2" fill="#5ec989" fill-opacity="0.3"/>
-                            <circle cx="18" cy="110" r="2" fill="#5ec989" fill-opacity="0.3"/>
-                            <circle cx="38" cy="65" r="2" fill="#5ec989" fill-opacity="0.3"/>
-                            <circle cx="68" cy="50" r="2.5" fill="#5ec989" fill-opacity="0.4"/>
-                            <circle cx="80" cy="70" r="2.5" fill="#5ec989" fill-opacity="0.4"/>
-                            <circle cx="62" cy="90" r="2.5" fill="#5ec989" fill-opacity="0.4"/>
-                            <circle cx="85" cy="100" r="2.5" fill="#5ec989" fill-opacity="0.4"/>
-                            <circle cx="75" cy="60" r="2.5" fill="#5ec989" fill-opacity="0.4"/>
-                            <circle cx="115" cy="60" r="3" fill="#5ec989" fill-opacity="0.5"/>
-                            <circle cx="130" cy="75" r="3" fill="#5ec989" fill-opacity="0.5"/>
-                            <circle cx="110" cy="90" r="3" fill="#5ec989" fill-opacity="0.5"/>
-                            <!-- Concentrated value on right -->
-                            <circle cx="170" cy="75" r="8" fill="#5ec989" fill-opacity="0.25" stroke="#5ec989" stroke-width="1"/>
+                            <path d="M10 25 L50 25 L50 125 L10 125 Z" fill="#5ec989" fill-opacity="0.1" stroke="#5ec989" stroke-width="1"/>
+                            <path d="M55 35 L95 35 L95 115 L55 115 Z" fill="#5ec989" fill-opacity="0.12" stroke="#5ec989" stroke-width="1"/>
+                            <path d="M100 45 L145 45 L145 105 L100 105 Z" fill="#5ec989" fill-opacity="0.15" stroke="#5ec989" stroke-width="1"/>
+                            <path d="M150 55 L190 55 L190 95 L150 95 Z" fill="#5ec989" fill-opacity="0.22" stroke="#5ec989" stroke-width="1.2"/>
+                            <circle cx="20" cy="40" r="2" fill="#5ec989" fill-opacity="0.4"/>
+                            <circle cx="35" cy="55" r="2" fill="#5ec989" fill-opacity="0.4"/>
+                            <circle cx="15" cy="70" r="2" fill="#5ec989" fill-opacity="0.4"/>
+                            <circle cx="40" cy="85" r="2" fill="#5ec989" fill-opacity="0.4"/>
+                            <circle cx="25" cy="100" r="2" fill="#5ec989" fill-opacity="0.4"/>
+                            <circle cx="42" cy="45" r="2" fill="#5ec989" fill-opacity="0.4"/>
+                            <circle cx="18" cy="110" r="2" fill="#5ec989" fill-opacity="0.4"/>
+                            <circle cx="38" cy="65" r="2" fill="#5ec989" fill-opacity="0.4"/>
+                            <circle cx="68" cy="50" r="2.5" fill="#5ec989" fill-opacity="0.5"/>
+                            <circle cx="80" cy="70" r="2.5" fill="#5ec989" fill-opacity="0.5"/>
+                            <circle cx="62" cy="90" r="2.5" fill="#5ec989" fill-opacity="0.5"/>
+                            <circle cx="85" cy="100" r="2.5" fill="#5ec989" fill-opacity="0.5"/>
+                            <circle cx="75" cy="60" r="2.5" fill="#5ec989" fill-opacity="0.5"/>
+                            <circle cx="115" cy="60" r="3" fill="#5ec989" fill-opacity="0.6"/>
+                            <circle cx="130" cy="75" r="3" fill="#5ec989" fill-opacity="0.6"/>
+                            <circle cx="110" cy="90" r="3" fill="#5ec989" fill-opacity="0.6"/>
+                            <circle cx="170" cy="75" r="8" fill="#5ec989" fill-opacity="0.3" stroke="#5ec989" stroke-width="1"/>
                             <text x="170" y="78" text-anchor="middle" fill="#5ec989" font-size="6" font-weight="600">VALUE</text>
-                            <!-- Flow arrows -->
-                            <path d="M50 75 L55 75" stroke="#5ec989" stroke-width="1.2" stroke-opacity="0.5" marker-end="url(#arrow3)"/>
-                            <path d="M95 75 L100 75" stroke="#5ec989" stroke-width="1.2" stroke-opacity="0.5" marker-end="url(#arrow3)"/>
-                            <path d="M145 75 L150 75" stroke="#5ec989" stroke-width="1.2" stroke-opacity="0.5" marker-end="url(#arrow3)"/>
+                            <path d="M50 75 L55 75" stroke="#5ec989" stroke-width="1.2" stroke-opacity="0.6" marker-end="url(#arrow3)"/>
+                            <path d="M95 75 L100 75" stroke="#5ec989" stroke-width="1.2" stroke-opacity="0.6" marker-end="url(#arrow3)"/>
+                            <path d="M145 75 L150 75" stroke="#5ec989" stroke-width="1.2" stroke-opacity="0.6" marker-end="url(#arrow3)"/>
                             <defs><marker id="arrow3" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0 0 L6 2 L0 4" fill="none" stroke="#5ec989" stroke-width="0.8"/></marker></defs>
                         </svg>
                     </div>
@@ -216,43 +280,37 @@
                 <div class="card card-accent-4">
                     <div class="card-diagram">
                         <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Three interlocking gears: ROE, ROI, ROF -->
-                            <!-- Gear 1 (ROE) - top left -->
-                            <circle cx="72" cy="52" r="28" fill="#8a6ecf" fill-opacity="0.06" stroke="#8a6ecf" stroke-width="1.2"/>
-                            <circle cx="72" cy="52" r="20" fill="#8a6ecf" fill-opacity="0.1" stroke="#8a6ecf" stroke-width="0.8"/>
-                            <!-- Gear teeth for gear 1 -->
-                            <rect x="67" y="22" width="10" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.3"/>
-                            <rect x="67" y="74" width="10" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.3"/>
-                            <rect x="42" y="47" width="6" height="10" rx="1" fill="#8a6ecf" fill-opacity="0.3"/>
-                            <rect x="96" y="47" width="6" height="10" rx="1" fill="#8a6ecf" fill-opacity="0.3"/>
-                            <rect x="48" y="29" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.3" transform="rotate(-45 52 32)"/>
-                            <rect x="88" y="29" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.3" transform="rotate(45 92 32)"/>
-                            <rect x="48" y="69" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.3" transform="rotate(45 52 72)"/>
-                            <rect x="88" y="69" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.3" transform="rotate(-45 92 72)"/>
+                            <circle cx="72" cy="52" r="28" fill="#8a6ecf" fill-opacity="0.08" stroke="#8a6ecf" stroke-width="1.2"/>
+                            <circle cx="72" cy="52" r="20" fill="#8a6ecf" fill-opacity="0.12" stroke="#8a6ecf" stroke-width="0.8"/>
+                            <rect x="67" y="22" width="10" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4"/>
+                            <rect x="67" y="74" width="10" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4"/>
+                            <rect x="42" y="47" width="6" height="10" rx="1" fill="#8a6ecf" fill-opacity="0.4"/>
+                            <rect x="96" y="47" width="6" height="10" rx="1" fill="#8a6ecf" fill-opacity="0.4"/>
+                            <rect x="48" y="29" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4" transform="rotate(-45 52 32)"/>
+                            <rect x="88" y="29" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4" transform="rotate(45 92 32)"/>
+                            <rect x="48" y="69" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4" transform="rotate(45 52 72)"/>
+                            <rect x="88" y="69" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4" transform="rotate(-45 92 72)"/>
                             <text x="72" y="55" text-anchor="middle" fill="#8a6ecf" font-size="8" font-weight="600">ROE</text>
-                            <!-- Gear 2 (ROI) - top right -->
-                            <circle cx="132" cy="52" r="28" fill="#8a6ecf" fill-opacity="0.06" stroke="#8a6ecf" stroke-width="1.2"/>
-                            <circle cx="132" cy="52" r="20" fill="#8a6ecf" fill-opacity="0.1" stroke="#8a6ecf" stroke-width="0.8"/>
-                            <rect x="127" y="22" width="10" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.3"/>
-                            <rect x="127" y="74" width="10" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.3"/>
-                            <rect x="156" y="47" width="6" height="10" rx="1" fill="#8a6ecf" fill-opacity="0.3"/>
-                            <rect x="108" y="29" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.3" transform="rotate(-45 112 32)"/>
-                            <rect x="148" y="29" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.3" transform="rotate(45 152 32)"/>
-                            <rect x="148" y="69" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.3" transform="rotate(-45 152 72)"/>
+                            <circle cx="132" cy="52" r="28" fill="#8a6ecf" fill-opacity="0.08" stroke="#8a6ecf" stroke-width="1.2"/>
+                            <circle cx="132" cy="52" r="20" fill="#8a6ecf" fill-opacity="0.12" stroke="#8a6ecf" stroke-width="0.8"/>
+                            <rect x="127" y="22" width="10" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4"/>
+                            <rect x="127" y="74" width="10" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4"/>
+                            <rect x="156" y="47" width="6" height="10" rx="1" fill="#8a6ecf" fill-opacity="0.4"/>
+                            <rect x="108" y="29" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4" transform="rotate(-45 112 32)"/>
+                            <rect x="148" y="29" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4" transform="rotate(45 152 32)"/>
+                            <rect x="148" y="69" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4" transform="rotate(-45 152 72)"/>
                             <text x="132" y="55" text-anchor="middle" fill="#8a6ecf" font-size="8" font-weight="600">ROI</text>
-                            <!-- Gear 3 (ROF) - bottom center -->
-                            <circle cx="102" cy="100" r="28" fill="#8a6ecf" fill-opacity="0.06" stroke="#8a6ecf" stroke-width="1.2"/>
-                            <circle cx="102" cy="100" r="20" fill="#8a6ecf" fill-opacity="0.1" stroke="#8a6ecf" stroke-width="0.8"/>
-                            <rect x="97" y="126" width="10" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.3"/>
-                            <rect x="72" y="95" width="6" height="10" rx="1" fill="#8a6ecf" fill-opacity="0.3"/>
-                            <rect x="126" y="95" width="6" height="10" rx="1" fill="#8a6ecf" fill-opacity="0.3"/>
-                            <rect x="78" y="117" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.3" transform="rotate(45 82 120)"/>
-                            <rect x="118" y="117" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.3" transform="rotate(-45 122 120)"/>
+                            <circle cx="102" cy="100" r="28" fill="#8a6ecf" fill-opacity="0.08" stroke="#8a6ecf" stroke-width="1.2"/>
+                            <circle cx="102" cy="100" r="20" fill="#8a6ecf" fill-opacity="0.12" stroke="#8a6ecf" stroke-width="0.8"/>
+                            <rect x="97" y="126" width="10" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4"/>
+                            <rect x="72" y="95" width="6" height="10" rx="1" fill="#8a6ecf" fill-opacity="0.4"/>
+                            <rect x="126" y="95" width="6" height="10" rx="1" fill="#8a6ecf" fill-opacity="0.4"/>
+                            <rect x="78" y="117" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4" transform="rotate(45 82 120)"/>
+                            <rect x="118" y="117" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4" transform="rotate(-45 122 120)"/>
                             <text x="102" y="103" text-anchor="middle" fill="#8a6ecf" font-size="8" font-weight="600">ROF</text>
-                            <!-- Mesh indicator lines where gears interlock -->
-                            <line x1="96" y1="52" x2="104" y2="52" stroke="#8a6ecf" stroke-width="1.5" stroke-opacity="0.5" stroke-dasharray="2 2"/>
-                            <line x1="82" y1="74" x2="88" y2="82" stroke="#8a6ecf" stroke-width="1.5" stroke-opacity="0.5" stroke-dasharray="2 2"/>
-                            <line x1="122" y1="74" x2="116" y2="82" stroke="#8a6ecf" stroke-width="1.5" stroke-opacity="0.5" stroke-dasharray="2 2"/>
+                            <line x1="96" y1="52" x2="104" y2="52" stroke="#8a6ecf" stroke-width="1.5" stroke-opacity="0.6" stroke-dasharray="2 2"/>
+                            <line x1="82" y1="74" x2="88" y2="82" stroke="#8a6ecf" stroke-width="1.5" stroke-opacity="0.6" stroke-dasharray="2 2"/>
+                            <line x1="122" y1="74" x2="116" y2="82" stroke="#8a6ecf" stroke-width="1.5" stroke-opacity="0.6" stroke-dasharray="2 2"/>
                         </svg>
                     </div>
                     <span class="card-label">The Technology</span>
@@ -265,39 +323,29 @@
                 <div class="card card-accent-5">
                     <div class="card-diagram">
                         <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Compass / North Star with radiating lines -->
-                            <!-- Radiating lines (background) -->
-                            <line x1="100" y1="70" x2="100" y2="5" stroke="#cf6e6e" stroke-width="0.5" stroke-opacity="0.15"/>
-                            <line x1="100" y1="70" x2="100" y2="135" stroke="#cf6e6e" stroke-width="0.5" stroke-opacity="0.15"/>
-                            <line x1="100" y1="70" x2="15" y2="70" stroke="#cf6e6e" stroke-width="0.5" stroke-opacity="0.15"/>
-                            <line x1="100" y1="70" x2="185" y2="70" stroke="#cf6e6e" stroke-width="0.5" stroke-opacity="0.15"/>
-                            <line x1="100" y1="70" x2="45" y2="15" stroke="#cf6e6e" stroke-width="0.4" stroke-opacity="0.1"/>
-                            <line x1="100" y1="70" x2="155" y2="15" stroke="#cf6e6e" stroke-width="0.4" stroke-opacity="0.1"/>
-                            <line x1="100" y1="70" x2="45" y2="125" stroke="#cf6e6e" stroke-width="0.4" stroke-opacity="0.1"/>
-                            <line x1="100" y1="70" x2="155" y2="125" stroke="#cf6e6e" stroke-width="0.4" stroke-opacity="0.1"/>
-                            <!-- More subtle rays -->
-                            <line x1="100" y1="70" x2="30" y2="40" stroke="#cf6e6e" stroke-width="0.3" stroke-opacity="0.08"/>
-                            <line x1="100" y1="70" x2="170" y2="40" stroke="#cf6e6e" stroke-width="0.3" stroke-opacity="0.08"/>
-                            <line x1="100" y1="70" x2="30" y2="100" stroke="#cf6e6e" stroke-width="0.3" stroke-opacity="0.08"/>
-                            <line x1="100" y1="70" x2="170" y2="100" stroke="#cf6e6e" stroke-width="0.3" stroke-opacity="0.08"/>
-                            <!-- Outer compass circle -->
-                            <circle cx="100" cy="70" r="45" fill="none" stroke="#cf6e6e" stroke-width="0.8" stroke-opacity="0.2"/>
-                            <!-- Inner compass circle -->
-                            <circle cx="100" cy="70" r="30" fill="#cf6e6e" fill-opacity="0.04" stroke="#cf6e6e" stroke-width="1" stroke-opacity="0.3"/>
-                            <!-- Compass diamond / pointer (North) -->
-                            <path d="M100 20 L108 65 L100 55 L92 65 Z" fill="#cf6e6e" fill-opacity="0.5" stroke="#cf6e6e" stroke-width="1"/>
-                            <!-- South pointer (dimmer) -->
-                            <path d="M100 120 L108 75 L100 85 L92 75 Z" fill="#cf6e6e" fill-opacity="0.15" stroke="#cf6e6e" stroke-width="0.8" stroke-opacity="0.4"/>
-                            <!-- East/West pointers (subtle) -->
-                            <path d="M150 70 L105 62 L115 70 L105 78 Z" fill="#cf6e6e" fill-opacity="0.12" stroke="#cf6e6e" stroke-width="0.8" stroke-opacity="0.3"/>
-                            <path d="M50 70 L95 62 L85 70 L95 78 Z" fill="#cf6e6e" fill-opacity="0.12" stroke="#cf6e6e" stroke-width="0.8" stroke-opacity="0.3"/>
-                            <!-- Center dot -->
-                            <circle cx="100" cy="70" r="4" fill="#cf6e6e" fill-opacity="0.3" stroke="#cf6e6e" stroke-width="1.5"/>
-                            <!-- Cardinal labels -->
-                            <text x="100" y="12" text-anchor="middle" fill="#cf6e6e" font-size="7" font-weight="600" fill-opacity="0.7">N</text>
-                            <text x="100" y="135" text-anchor="middle" fill="#cf6e6e" font-size="7" font-weight="500" fill-opacity="0.4">S</text>
-                            <text x="12" y="73" text-anchor="middle" fill="#cf6e6e" font-size="7" font-weight="500" fill-opacity="0.4">W</text>
-                            <text x="188" y="73" text-anchor="middle" fill="#cf6e6e" font-size="7" font-weight="500" fill-opacity="0.4">E</text>
+                            <line x1="100" y1="70" x2="100" y2="5" stroke="#cf6e6e" stroke-width="0.5" stroke-opacity="0.2"/>
+                            <line x1="100" y1="70" x2="100" y2="135" stroke="#cf6e6e" stroke-width="0.5" stroke-opacity="0.2"/>
+                            <line x1="100" y1="70" x2="15" y2="70" stroke="#cf6e6e" stroke-width="0.5" stroke-opacity="0.2"/>
+                            <line x1="100" y1="70" x2="185" y2="70" stroke="#cf6e6e" stroke-width="0.5" stroke-opacity="0.2"/>
+                            <line x1="100" y1="70" x2="45" y2="15" stroke="#cf6e6e" stroke-width="0.4" stroke-opacity="0.15"/>
+                            <line x1="100" y1="70" x2="155" y2="15" stroke="#cf6e6e" stroke-width="0.4" stroke-opacity="0.15"/>
+                            <line x1="100" y1="70" x2="45" y2="125" stroke="#cf6e6e" stroke-width="0.4" stroke-opacity="0.15"/>
+                            <line x1="100" y1="70" x2="155" y2="125" stroke="#cf6e6e" stroke-width="0.4" stroke-opacity="0.15"/>
+                            <line x1="100" y1="70" x2="30" y2="40" stroke="#cf6e6e" stroke-width="0.3" stroke-opacity="0.1"/>
+                            <line x1="100" y1="70" x2="170" y2="40" stroke="#cf6e6e" stroke-width="0.3" stroke-opacity="0.1"/>
+                            <line x1="100" y1="70" x2="30" y2="100" stroke="#cf6e6e" stroke-width="0.3" stroke-opacity="0.1"/>
+                            <line x1="100" y1="70" x2="170" y2="100" stroke="#cf6e6e" stroke-width="0.3" stroke-opacity="0.1"/>
+                            <circle cx="100" cy="70" r="45" fill="none" stroke="#cf6e6e" stroke-width="0.8" stroke-opacity="0.25"/>
+                            <circle cx="100" cy="70" r="30" fill="#cf6e6e" fill-opacity="0.06" stroke="#cf6e6e" stroke-width="1" stroke-opacity="0.35"/>
+                            <path d="M100 20 L108 65 L100 55 L92 65 Z" fill="#cf6e6e" fill-opacity="0.55" stroke="#cf6e6e" stroke-width="1"/>
+                            <path d="M100 120 L108 75 L100 85 L92 75 Z" fill="#cf6e6e" fill-opacity="0.2" stroke="#cf6e6e" stroke-width="0.8" stroke-opacity="0.5"/>
+                            <path d="M150 70 L105 62 L115 70 L105 78 Z" fill="#cf6e6e" fill-opacity="0.15" stroke="#cf6e6e" stroke-width="0.8" stroke-opacity="0.4"/>
+                            <path d="M50 70 L95 62 L85 70 L95 78 Z" fill="#cf6e6e" fill-opacity="0.15" stroke="#cf6e6e" stroke-width="0.8" stroke-opacity="0.4"/>
+                            <circle cx="100" cy="70" r="4" fill="#cf6e6e" fill-opacity="0.4" stroke="#cf6e6e" stroke-width="1.5"/>
+                            <text x="100" y="12" text-anchor="middle" fill="#cf6e6e" font-size="7" font-weight="600" fill-opacity="0.8">N</text>
+                            <text x="100" y="135" text-anchor="middle" fill="#cf6e6e" font-size="7" font-weight="500" fill-opacity="0.5">S</text>
+                            <text x="12" y="73" text-anchor="middle" fill="#cf6e6e" font-size="7" font-weight="500" fill-opacity="0.5">W</text>
+                            <text x="188" y="73" text-anchor="middle" fill="#cf6e6e" font-size="7" font-weight="500" fill-opacity="0.5">E</text>
                         </svg>
                     </div>
                     <span class="card-label">The Daily Practice</span>
@@ -421,7 +469,7 @@
     </section>
 
     <!-- Speaking -->
-    <section class="section" id="speaking">
+    <section class="section section-white fade-section" id="speaking">
         <div class="container">
             <h2 class="section-title">Speaking</h2>
             <p class="section-intro">Conference keynotes and executive sessions on culture, AI governance, and enterprise listening.</p>
@@ -437,6 +485,13 @@
                     </ul>
                 </div>
                 <div class="speaking-venues">
+                    <div class="video-placeholder">
+                        <svg class="video-play-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="23" stroke="#C9A54E" stroke-width="2"/>
+                            <path d="M19 14l16 10-16 10V14z" fill="#C9A54E"/>
+                        </svg>
+                        <span>Speaking Demo Coming Soon</span>
+                    </div>
                     <h3>Past Venues &amp; Partners</h3>
                     <div class="venue-list">
                         <span class="venue">IBM</span>
@@ -451,7 +506,7 @@
     </section>
 
     <!-- Services -->
-    <section class="section section-dark" id="services">
+    <section class="section section-sand fade-section" id="services">
         <div class="container">
             <h2 class="section-title">Engage</h2>
             <p class="section-intro">Four ways to work together. Start with a conversation.</p>
@@ -459,38 +514,38 @@
 
                 <div class="service-card service-card-featured">
                     <div class="service-icon">
-                        <svg viewBox="0 0 40 40" fill="none" stroke="var(--accent-1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="20" r="16"/><path d="M20 12v8l5.5 5.5"/></svg>
+                        <svg viewBox="0 0 40 40" fill="none" stroke="#C9A54E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="20" r="16"/><path d="M20 12v8l5.5 5.5"/></svg>
                     </div>
                     <span class="service-tier">Discovery Call</span>
                     <p class="service-desc">A conversation to explore alignment. No pitch, no pressure &mdash; just clarity on whether we can create value together.</p>
-                    <a href="#inquire" class="btn btn-service">Schedule a Call</a>
+                    <a href="#inquire" class="btn-service">Schedule a Call</a>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg viewBox="0 0 40 40" fill="none" stroke="var(--accent-1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="14" r="6"/><path d="M8 36c0-6.627 5.373-12 12-12s12 5.373 12 12"/><path d="M26 14l4 4-4 4"/></svg>
+                        <svg viewBox="0 0 40 40" fill="none" stroke="#C9A54E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="14" r="6"/><path d="M8 36c0-6.627 5.373-12 12-12s12 5.373 12 12"/><path d="M26 14l4 4-4 4"/></svg>
                     </div>
                     <span class="service-tier">Executive Coaching</span>
                     <p class="service-desc">One-on-one sessions for senior leaders navigating culture transformation, AI governance, or career inflection points.</p>
-                    <a href="#inquire" class="btn btn-service">Inquire</a>
+                    <a href="#inquire" class="btn-service">Inquire</a>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg viewBox="0 0 40 40" fill="none" stroke="var(--accent-1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 30V16l14-10 14 10v14"/><rect x="16" y="24" width="8" height="10"/><path d="M4 34h32"/></svg>
+                        <svg viewBox="0 0 40 40" fill="none" stroke="#C9A54E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 30V16l14-10 14 10v14"/><rect x="16" y="24" width="8" height="10"/><path d="M4 34h32"/></svg>
                     </div>
                     <span class="service-tier">Speaking Engagement</span>
                     <p class="service-desc">Conference keynotes, executive offsites, and leadership development sessions built around your organization's context.</p>
-                    <a href="#inquire" class="btn btn-service">Inquire</a>
+                    <a href="#inquire" class="btn-service">Inquire</a>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">
-                        <svg viewBox="0 0 40 40" fill="none" stroke="var(--accent-1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="32" height="32" rx="4"/><path d="M12 14h16M12 20h16M12 26h10"/><circle cx="30" cy="30" r="6" fill="var(--bg-card)" stroke="var(--accent-1)"/><path d="M28 30h4M30 28v4"/></svg>
+                        <svg viewBox="0 0 40 40" fill="none" stroke="#C9A54E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="32" height="32" rx="4"/><path d="M12 14h16M12 20h16M12 26h10"/><circle cx="30" cy="30" r="6" fill="#FFFFFF" stroke="#C9A54E"/><path d="M28 30h4M30 28v4"/></svg>
                     </div>
                     <span class="service-tier">Culture Strategy Advisory</span>
                     <p class="service-desc">Hands-on advisory for organizations ready to operationalize culture as a measurable system. Assessment, architecture, activation.</p>
-                    <a href="#inquire" class="btn btn-service">Inquire</a>
+                    <a href="#inquire" class="btn-service">Inquire</a>
                 </div>
 
             </div>
@@ -498,7 +553,7 @@
     </section>
 
     <!-- Inquiry Form -->
-    <section class="section" id="inquire">
+    <section class="section section-white fade-section" id="inquire">
         <div class="container container-narrow">
             <h2 class="section-title">Start a Conversation</h2>
             <p class="section-intro">Tell me what you are working on and which area is the priority. I will follow up personally.</p>
@@ -529,13 +584,13 @@
                     <label for="message">Tell me more about what you are working on</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-submit">Send Inquiry</button>
+                <button type="submit" class="btn-submit">Send Inquiry</button>
             </form>
         </div>
     </section>
 
     <!-- Book -->
-    <section class="section section-dark" id="book">
+    <section class="section section-navy fade-section" id="book">
         <div class="container">
             <h2 class="section-title">The Book</h2>
             <div class="book-grid">
@@ -559,7 +614,7 @@
     </section>
 
     <!-- Contact -->
-    <section class="section" id="contact">
+    <section class="section section-sand fade-section" id="contact">
         <div class="container container-narrow">
             <h2 class="section-title">Contact</h2>
             <p class="section-intro">For speaking inquiries, collaboration, or conversation.</p>
@@ -572,24 +627,101 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
                     <span>Email</span>
                 </a>
-                <a href="https://github.com/hodgson79" target="_blank" rel="noopener" class="contact-card">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                    <span>GitHub</span>
-                </a>
                 <a href="#inquire" class="contact-card">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
                     <span>Inquire</span>
                 </a>
             </div>
+
+            <!-- Newsletter -->
+            <div class="newsletter">
+                <h3>The Monday Algorithm</h3>
+                <p>Weekly insights on culture, AI governance, and leadership.</p>
+                <form class="newsletter-form" action="#" method="POST">
+                    <input type="email" name="newsletter_email" placeholder="Enter your email" required aria-label="Email for newsletter">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
         </div>
     </section>
 
+    </main>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 Patrick M. Hodgson Sr. All rights reserved.</p>
-            <p class="footer-tm">The Authenticity Algorithm, PeoplePowered, Voice to Value, ValueAI, and CourageLed are trademarks of Patrick M. Hodgson Sr.</p>
+            <p class="footer-tm">The Authenticity Algorithm&trade;, PeoplePowered&trade;, Voice to Value&trade;, ValueAI&trade;, and CourageLed&trade; are trademarks of Patrick M. Hodgson Sr.</p>
+            <p class="footer-press"><a href="/press">Press &amp; Media</a></p>
         </div>
     </footer>
+
+    <!-- Minimal JS -->
+    <script>
+    (function() {
+        // Scroll-triggered nav shadow
+        var nav = document.getElementById('nav');
+        var scrollThreshold = 20;
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > scrollThreshold) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        }, { passive: true });
+
+        // Hamburger menu toggle
+        var hamburger = document.getElementById('hamburger');
+        var navLinks = document.getElementById('navLinks');
+        var overlay = document.getElementById('mobileOverlay');
+
+        function toggleMenu() {
+            var isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !isOpen);
+            navLinks.classList.toggle('open');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = isOpen ? '' : 'hidden';
+        }
+
+        function closeMenu() {
+            hamburger.setAttribute('aria-expanded', 'false');
+            navLinks.classList.remove('open');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', closeMenu);
+
+        // Close menu on nav link click
+        var links = navLinks.querySelectorAll('a');
+        for (var i = 0; i < links.length; i++) {
+            links[i].addEventListener('click', closeMenu);
+        }
+
+        // Fade-up on scroll (Intersection Observer)
+        var fadeSections = document.querySelectorAll('.fade-section');
+        if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+            fadeSections.forEach(function(section) {
+                observer.observe(section);
+            });
+        } else {
+            // Fallback: show all sections
+            fadeSections.forEach(function(section) {
+                section.classList.add('visible');
+            });
+        }
+    })();
+    </script>
 
 </body>
 </html>
