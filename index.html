@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patrick M. Hodgson Sr. | Culture Scientist. AI Governance Architect. Builder.</title>
-    <meta name="description" content="Patrick M. Hodgson Sr. — Culture Scientist, AI Governance Architect, and Builder. Stop trying to build one AI strategy. Build three engines. Creator of The Authenticity Algorithm and five trademarked frameworks.">
+    <meta name="description" content="Patrick M. Hodgson Sr. — Culture Scientist, AI Governance Architect, and Builder. Five trademarked frameworks. One integrated discipline. Stop trying to build one AI strategy. Build three engines.">
     <meta name="author" content="Patrick M. Hodgson Sr.">
     <link rel="canonical" href="https://authenticityalgorithm.com">
 
@@ -30,9 +30,7 @@
       "jobTitle": "Director of Culture Strategy & Insights",
       "description": "Culture Scientist, AI Governance Architect, and Builder. Creator of The Authenticity Algorithm, PeoplePowered, Voice to Value, ValueAI, and CourageLed frameworks.",
       "url": "https://authenticityalgorithm.com",
-      "sameAs": [
-        "https://www.linkedin.com/in/patrickhodgson"
-      ],
+      "sameAs": ["https://authenticityalgorithm.com", "https://www.linkedin.com/in/phodgson"],
       "alumniOf": [
         {"@type": "EducationalOrganization", "name": "San Francisco State University"},
         {"@type": "EducationalOrganization", "name": "Golden Gate University"},
@@ -43,12 +41,1427 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles.css">
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+    <style>
+    /* ============================================================
+       RESET & FOUNDATION
+       ============================================================ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: #C9A54E #0B1D3A; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0B1D3A; }
+    ::-webkit-scrollbar-thumb { background: #C9A54E; border-radius: 3px; }
+
+    :root {
+        --navy: #0B1D3A;
+        --gold: #C9A54E;
+        --gold-light: #D4B76A;
+        --sand: #F8F2E8;
+        --morning: #FAFCFE;
+        --sky-light: #EAF5FC;
+        --sky-wash: #D4EDFC;
+        --pacific: #89CFF0;
+        --pacific-light: #B8DFFA;
+        --teal: #5BA4CF;
+        --text-primary: #0B1D3A;
+        --text-secondary: #3A4A5C;
+        --text-muted: #7A8999;
+        --accent-1: #C9A54E;
+        --accent-2: #4EA5C9;
+        --accent-3: #5EC989;
+        --accent-4: #8A6ECF;
+        --accent-5: #CF6E6E;
+        --border-light: #E8DCC8;
+        --shadow-sm: 0 2px 8px rgba(11,29,58,0.06);
+        --shadow-md: 0 8px 30px rgba(11,29,58,0.1);
+        --shadow-lg: 0 20px 60px rgba(11,29,58,0.15);
+        --shadow-glow: 0 0 40px rgba(201,165,78,0.15);
+        --radius-sm: 8px;
+        --radius-md: 16px;
+        --radius-lg: 24px;
+        --radius-xl: 32px;
+        --font-display: 'Playfair Display', Georgia, serif;
+        --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    body {
+        font-family: var(--font-body);
+        color: var(--text-primary);
+        background: var(--morning);
+        line-height: 1.7;
+        font-size: 18px;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+    }
+
+    /* ============================================================
+       PRELOADER
+       ============================================================ */
+    .preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 10000;
+        background: var(--navy);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 24px;
+        transition: opacity 0.6s var(--ease-out), visibility 0.6s;
+    }
+    .preloader.done {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+    .preloader-logo {
+        font-family: var(--font-display);
+        font-size: clamp(32px, 5vw, 56px);
+        font-weight: 900;
+        color: var(--gold);
+        letter-spacing: -0.02em;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    .preloader-bar {
+        width: 120px;
+        height: 2px;
+        background: rgba(201,165,78,0.2);
+        border-radius: 2px;
+        overflow: hidden;
+    }
+    .preloader-fill {
+        width: 0;
+        height: 100%;
+        background: var(--gold);
+        border-radius: 2px;
+        transition: width 1.2s var(--ease-out);
+    }
+
+    /* ============================================================
+       SCROLL PROGRESS
+       ============================================================ */
+    .scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--gold), var(--accent-2), var(--accent-3), var(--accent-4), var(--accent-5));
+        z-index: 9999;
+        transform-origin: left;
+        transform: scaleX(0);
+        will-change: transform;
+    }
+
+    /* ============================================================
+       SKIP LINK
+       ============================================================ */
+    .skip-link {
+        position: absolute;
+        top: -100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--gold);
+        color: var(--navy);
+        padding: 12px 24px;
+        border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+        font-weight: 600;
+        text-decoration: none;
+        z-index: 10001;
+        transition: top 0.3s;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ============================================================
+       NAVIGATION
+       ============================================================ */
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 0 clamp(20px, 4vw, 48px);
+        transition: all 0.4s var(--ease-out);
+    }
+    .nav.scrolled {
+        background: rgba(250,252,254,0.85);
+        backdrop-filter: blur(20px) saturate(1.8);
+        -webkit-backdrop-filter: blur(20px) saturate(1.8);
+        box-shadow: 0 1px 0 rgba(11,29,58,0.06);
+    }
+    .nav-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+    }
+    .nav-logo {
+        font-family: var(--font-display);
+        font-size: 24px;
+        font-weight: 900;
+        color: var(--navy);
+        text-decoration: none;
+        letter-spacing: -0.03em;
+        position: relative;
+        transition: color 0.3s;
+    }
+    .nav-logo::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--gold);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.4s var(--ease-out);
+    }
+    .nav-logo:hover::after { transform: scaleX(1); transform-origin: left; }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        list-style: none;
+    }
+    .nav-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 8px 16px;
+        border-radius: var(--radius-sm);
+        transition: all 0.3s var(--ease-out);
+        position: relative;
+    }
+    .nav-links a:hover { color: var(--navy); background: rgba(11,29,58,0.04); }
+    .nav-cta {
+        background: var(--navy) !important;
+        color: #fff !important;
+        padding: 10px 24px !important;
+        border-radius: 100px !important;
+        font-weight: 600 !important;
+        transition: all 0.3s var(--ease-out) !important;
+    }
+    .nav-cta:hover {
+        background: var(--gold) !important;
+        color: var(--navy) !important;
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-md);
+    }
+
+    /* Hamburger */
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        z-index: 1001;
+    }
+    .hamburger span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--navy);
+        transition: all 0.3s var(--ease-out);
+        transform-origin: center;
+    }
+    .hamburger[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .hamburger[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    .mobile-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(11,29,58,0.5);
+        backdrop-filter: blur(4px);
+        z-index: 998;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+    }
+    .mobile-overlay.active { opacity: 1; visibility: visible; }
+
+    @media (max-width: 900px) {
+        .hamburger { display: flex; }
+        .nav-links {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: min(320px, 85vw);
+            height: 100dvh;
+            flex-direction: column;
+            background: #fff;
+            padding: 96px 32px 32px;
+            gap: 4px;
+            z-index: 999;
+            transition: right 0.4s var(--ease-out);
+            box-shadow: var(--shadow-lg);
+            align-items: stretch;
+        }
+        .nav-links.open { right: 0; }
+        .nav-links a { font-size: 16px; padding: 14px 16px; }
+        .nav-cta { text-align: center; margin-top: 16px; }
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero {
+        position: relative;
+        min-height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: var(--morning);
+    }
+    .hero-canvas {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+    }
+    .hero-gradient {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background:
+            radial-gradient(ellipse 80% 60% at 20% 80%, rgba(201,165,78,0.08) 0%, transparent 60%),
+            radial-gradient(ellipse 60% 80% at 80% 20%, rgba(89,207,240,0.06) 0%, transparent 60%),
+            radial-gradient(ellipse 50% 50% at 50% 50%, rgba(138,110,207,0.04) 0%, transparent 60%);
+    }
+    .hero-content {
+        position: relative;
+        z-index: 3;
+        text-align: center;
+        max-width: 900px;
+        padding: 120px 24px 80px;
+    }
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(201,165,78,0.08);
+        border: 1px solid rgba(201,165,78,0.2);
+        border-radius: 100px;
+        padding: 8px 20px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--gold);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 32px;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    .hero-badge-dot {
+        width: 6px;
+        height: 6px;
+        background: var(--gold);
+        border-radius: 50%;
+        animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.5; transform: scale(1.5); }
+    }
+    .hero-title {
+        font-family: var(--font-display);
+        font-size: clamp(40px, 7vw, 80px);
+        font-weight: 900;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        color: var(--navy);
+        margin-bottom: 20px;
+        opacity: 0;
+    }
+    .hero-title-line {
+        display: block;
+        overflow: hidden;
+    }
+    .hero-title-text {
+        display: block;
+        transform: translateY(110%);
+    }
+    .hero-subtitle {
+        font-size: clamp(18px, 2.5vw, 24px);
+        font-weight: 300;
+        color: var(--text-secondary);
+        margin-bottom: 12px;
+        letter-spacing: 0.02em;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    .hero-rule {
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--gold), var(--gold-light));
+        margin: 24px auto;
+        border-radius: 3px;
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    .hero-tagline {
+        font-family: var(--font-display);
+        font-size: clamp(18px, 2.2vw, 22px);
+        font-weight: 700;
+        font-style: italic;
+        color: var(--gold);
+        margin-bottom: 40px;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    .hero-ctas {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    /* Buttons */
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 16px 36px;
+        font-family: var(--font-body);
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 100px;
+        transition: all 0.4s var(--ease-out);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        border: none;
+    }
+    .btn-primary {
+        background: var(--navy);
+        color: #fff;
+    }
+    .btn-primary:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md), var(--shadow-glow);
+    }
+    .btn-outline {
+        background: transparent;
+        color: var(--navy);
+        border: 1.5px solid rgba(11,29,58,0.2);
+    }
+    .btn-outline:hover {
+        border-color: var(--navy);
+        background: rgba(11,29,58,0.04);
+        transform: translateY(-2px);
+    }
+    .btn-gold {
+        background: var(--gold);
+        color: var(--navy);
+    }
+    .btn-gold:hover {
+        background: var(--gold-light);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md), var(--shadow-glow);
+    }
+    .btn-arrow {
+        transition: transform 0.3s var(--ease-out);
+    }
+    .btn:hover .btn-arrow { transform: translateX(4px); }
+
+    /* Scroll indicator */
+    .hero-scroll {
+        position: absolute;
+        bottom: 32px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        opacity: 0;
+    }
+    .hero-scroll-text {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+    }
+    .hero-scroll-line {
+        width: 1px;
+        height: 40px;
+        background: linear-gradient(to bottom, var(--gold), transparent);
+        animation: scroll-line 2s ease-in-out infinite;
+    }
+    @keyframes scroll-line {
+        0% { transform: scaleY(0); transform-origin: top; }
+        50% { transform: scaleY(1); transform-origin: top; }
+        51% { transform: scaleY(1); transform-origin: bottom; }
+        100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ============================================================
+       MARQUEE — Partner Logos
+       ============================================================ */
+    .marquee-section {
+        border-top: 1px solid rgba(11,29,58,0.06);
+        border-bottom: 1px solid rgba(11,29,58,0.06);
+        padding: 32px 0;
+        background: #fff;
+        overflow: hidden;
+    }
+    .marquee-label {
+        text-align: center;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 24px;
+    }
+    .marquee-track {
+        display: flex;
+        gap: 64px;
+        animation: marquee 35s linear infinite;
+        width: max-content;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-item {
+        font-family: var(--font-body);
+        font-size: 18px;
+        font-weight: 700;
+        color: rgba(11,29,58,0.18);
+        white-space: nowrap;
+        letter-spacing: 0.02em;
+        transition: color 0.3s;
+        user-select: none;
+    }
+    .marquee-item:hover { color: rgba(11,29,58,0.4); }
+    .marquee-item.marquee-accenture { font-style: italic; }
+    @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+
+    /* ============================================================
+       STATS BAR
+       ============================================================ */
+    .stats-bar {
+        background: var(--navy);
+        padding: 48px 24px;
+        overflow: hidden;
+    }
+    .stats-grid {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+        text-align: center;
+    }
+    .stat { opacity: 0; transform: translateY(30px); }
+    .stat-number {
+        font-family: var(--font-display);
+        font-size: clamp(36px, 5vw, 56px);
+        font-weight: 900;
+        color: var(--gold);
+        line-height: 1;
+        margin-bottom: 8px;
+    }
+    .stat-label {
+        font-size: 13px;
+        font-weight: 500;
+        color: rgba(255,255,255,0.5);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
+    @media (max-width: 700px) {
+        .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    }
+
+    /* ============================================================
+       SECTIONS — Shared
+       ============================================================ */
+    .section {
+        padding: clamp(80px, 10vw, 128px) 24px;
+        position: relative;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .container-narrow { max-width: 720px; }
+    .section-label {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 16px;
+    }
+    .section-title {
+        font-family: var(--font-display);
+        font-size: clamp(32px, 4.5vw, 52px);
+        font-weight: 800;
+        color: var(--navy);
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin-bottom: 16px;
+    }
+    .section-subtitle {
+        font-size: clamp(17px, 2vw, 20px);
+        font-weight: 400;
+        color: var(--text-secondary);
+        max-width: 600px;
+        line-height: 1.7;
+    }
+    .section-header {
+        margin-bottom: clamp(48px, 6vw, 72px);
+    }
+
+    /* ============================================================
+       ABOUT
+       ============================================================ */
+    .about-section { background: var(--morning); }
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: clamp(48px, 6vw, 80px);
+        align-items: start;
+    }
+    .about-text p {
+        margin-bottom: 20px;
+        font-size: 18px;
+        color: var(--text-secondary);
+        line-height: 1.8;
+    }
+    .about-text p:first-child::first-letter {
+        font-family: var(--font-display);
+        font-size: 3.5em;
+        float: left;
+        line-height: 0.8;
+        margin: 4px 12px 0 0;
+        color: var(--gold);
+        font-weight: 800;
+    }
+    .about-highlights {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        border-left: 2px solid var(--gold);
+        padding-left: 0;
+        position: sticky;
+        top: 120px;
+    }
+    .highlight {
+        padding: 20px 24px;
+        border-bottom: 1px solid rgba(11,29,58,0.06);
+        transition: all 0.4s var(--ease-out);
+    }
+    .highlight:last-child { border-bottom: none; }
+    .highlight:hover {
+        background: rgba(201,165,78,0.04);
+        padding-left: 32px;
+    }
+    .highlight-label {
+        display: block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 4px;
+    }
+    .highlight-value {
+        display: block;
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--navy);
+        line-height: 1.5;
+    }
+    @media (max-width: 900px) {
+        .about-grid { grid-template-columns: 1fr; }
+        .about-highlights { position: static; }
+    }
+
+    /* ============================================================
+       FRAMEWORK — Bento Grid
+       ============================================================ */
+    .framework-section { background: var(--sand); }
+
+    .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto auto;
+        gap: 20px;
+    }
+    .bento-card {
+        background: #fff;
+        border-radius: var(--radius-lg);
+        padding: clamp(28px, 3vw, 40px);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.5s var(--ease-out);
+        border: 1px solid rgba(11,29,58,0.06);
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    .bento-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        transition: height 0.4s var(--ease-out);
+    }
+    .bento-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+        border-color: transparent;
+    }
+    .bento-card:hover::before { height: 4px; }
+
+    /* Bento grid layout — featured card spans 2 cols */
+    .bento-card:nth-child(1) { grid-column: 1 / 3; }
+    .bento-card:nth-child(1)::before { background: var(--accent-1); }
+    .bento-card:nth-child(2)::before { background: var(--accent-2); }
+    .bento-card:nth-child(3)::before { background: var(--accent-3); }
+    .bento-card:nth-child(4)::before { background: var(--accent-4); }
+    .bento-card:nth-child(5)::before { background: var(--accent-5); }
+
+    .bento-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        flex-shrink: 0;
+    }
+    .bento-icon svg { width: 24px; height: 24px; }
+    .bento-card:nth-child(1) .bento-icon { background: rgba(201,165,78,0.1); }
+    .bento-card:nth-child(2) .bento-icon { background: rgba(78,165,201,0.1); }
+    .bento-card:nth-child(3) .bento-icon { background: rgba(94,201,137,0.1); }
+    .bento-card:nth-child(4) .bento-icon { background: rgba(138,110,207,0.1); }
+    .bento-card:nth-child(5) .bento-icon { background: rgba(207,110,110,0.1); }
+
+    .bento-domain {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+    .bento-card:nth-child(1) .bento-domain { color: var(--accent-1); }
+    .bento-card:nth-child(2) .bento-domain { color: var(--accent-2); }
+    .bento-card:nth-child(3) .bento-domain { color: var(--accent-3); }
+    .bento-card:nth-child(4) .bento-domain { color: var(--accent-4); }
+    .bento-card:nth-child(5) .bento-domain { color: var(--accent-5); }
+
+    .bento-title {
+        font-family: var(--font-display);
+        font-size: clamp(22px, 2.5vw, 28px);
+        font-weight: 800;
+        color: var(--navy);
+        margin-bottom: 4px;
+        line-height: 1.2;
+    }
+    .bento-tagline {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 15px;
+        color: var(--text-muted);
+        margin-bottom: 12px;
+    }
+    .bento-desc {
+        font-size: 15px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+        flex-grow: 1;
+    }
+
+    /* Featured card has two-column content */
+    .bento-card:nth-child(1) .bento-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+    }
+    .bento-card:nth-child(1) .bento-content-left { display: flex; flex-direction: column; }
+    .bento-visual {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+    .bento-visual svg { width: 100%; max-width: 220px; height: auto; }
+
+    .bento-components {
+        margin-top: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .bento-tag {
+        font-size: 12px;
+        font-weight: 500;
+        padding: 4px 12px;
+        border-radius: 100px;
+        background: rgba(11,29,58,0.04);
+        color: var(--text-secondary);
+    }
+
+    @media (max-width: 900px) {
+        .bento-grid { grid-template-columns: 1fr; }
+        .bento-card:nth-child(1) { grid-column: 1; }
+        .bento-card:nth-child(1) .bento-content { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       SPEAKING
+       ============================================================ */
+    .speaking-section { background: var(--morning); }
+    .speaking-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(40px, 6vw, 72px);
+    }
+    .speaking-topics { list-style: none; }
+    .speaking-topic {
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(11,29,58,0.08);
+        cursor: default;
+        transition: all 0.3s var(--ease-out);
+    }
+    .speaking-topic:hover { padding-left: 12px; }
+    .speaking-topic-title {
+        font-family: var(--font-display);
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 4px;
+    }
+    .speaking-topic-desc {
+        font-size: 14px;
+        color: var(--text-muted);
+    }
+    .speaking-right {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+    .video-placeholder {
+        aspect-ratio: 16/9;
+        background: linear-gradient(135deg, var(--navy), #132C52);
+        border-radius: var(--radius-lg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        position: relative;
+        overflow: hidden;
+    }
+    .video-placeholder::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 30% 70%, rgba(201,165,78,0.15), transparent 50%);
+    }
+    .video-play-btn {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.1);
+        border: 2px solid rgba(201,165,78,0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+        transition: all 0.3s var(--ease-out);
+    }
+    .video-play-btn:hover { background: rgba(201,165,78,0.2); transform: scale(1.1); }
+    .video-play-btn svg { width: 24px; height: 24px; margin-left: 3px; }
+    .video-label {
+        font-size: 13px;
+        color: rgba(255,255,255,0.5);
+        font-weight: 500;
+        position: relative;
+        z-index: 1;
+    }
+    .venue-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .venue-tag {
+        font-size: 13px;
+        font-weight: 600;
+        padding: 8px 20px;
+        background: rgba(11,29,58,0.04);
+        color: var(--text-secondary);
+        border-radius: 100px;
+        border: 1px solid rgba(11,29,58,0.06);
+        transition: all 0.3s var(--ease-out);
+    }
+    .venue-tag:hover { background: rgba(201,165,78,0.08); border-color: rgba(201,165,78,0.2); color: var(--navy); }
+
+    @media (max-width: 900px) {
+        .speaking-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       SERVICES — Glassmorphic Cards
+       ============================================================ */
+    .services-section { background: linear-gradient(180deg, var(--sand) 0%, var(--morning) 100%); }
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    .service-card {
+        background: rgba(255,255,255,0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(11,29,58,0.06);
+        border-radius: var(--radius-lg);
+        padding: clamp(28px, 3vw, 36px);
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        transition: all 0.5s var(--ease-out);
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    .service-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-lg);
+        background: #fff;
+        border-color: transparent;
+    }
+    .service-card-featured {
+        border-color: rgba(201,165,78,0.2);
+        background: rgba(255,255,255,0.9);
+    }
+    .service-card-featured::after {
+        content: 'Most Popular';
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: var(--gold);
+        color: var(--navy);
+        padding: 4px 10px;
+        border-radius: 100px;
+    }
+    .service-card { position: relative; }
+    .service-icon-wrap {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        background: rgba(201,165,78,0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .service-icon-wrap svg { width: 24px; height: 24px; stroke: var(--gold); }
+    .service-tier {
+        font-family: var(--font-display);
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--navy);
+    }
+    .service-desc {
+        font-size: 15px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+        flex-grow: 1;
+    }
+    .btn-service {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--gold);
+        text-decoration: none;
+        transition: all 0.3s var(--ease-out);
+    }
+    .btn-service:hover { gap: 12px; color: var(--navy); }
+    .btn-service::after {
+        content: '\2192';
+        transition: transform 0.3s var(--ease-out);
+    }
+    .btn-service:hover::after { transform: translateX(4px); }
+
+    @media (max-width: 1100px) {
+        .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+        .services-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       BOOK — 3D Mockup
+       ============================================================ */
+    .book-section {
+        background: var(--navy);
+        color: #fff;
+        overflow: hidden;
+    }
+    .book-section .section-label { color: var(--gold); }
+    .book-section .section-title { color: #fff; }
+    .book-section .section-subtitle { color: rgba(255,255,255,0.6); }
+
+    .book-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.3fr;
+        gap: clamp(48px, 8vw, 96px);
+        align-items: center;
+    }
+    .book-3d {
+        perspective: 1200px;
+        display: flex;
+        justify-content: center;
+        padding: 40px 0;
+    }
+    .book-3d-inner {
+        width: clamp(220px, 25vw, 300px);
+        aspect-ratio: 2/3;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: rotateY(-18deg) rotateX(3deg);
+        transition: transform 0.6s var(--ease-out);
+    }
+    .book-3d:hover .book-3d-inner {
+        transform: rotateY(-8deg) rotateX(1deg);
+    }
+    .book-cover-front {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(145deg, #132C52, var(--navy));
+        border-radius: 4px 16px 16px 4px;
+        border: 1px solid rgba(201,165,78,0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 28px;
+        text-align: center;
+        box-shadow:
+            0 30px 60px rgba(0,0,0,0.4),
+            inset 0 0 0 1px rgba(255,255,255,0.05);
+        transform: translateZ(15px);
+    }
+    .book-cover-badge {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 24px;
+        padding: 6px 16px;
+        border: 1px solid rgba(201,165,78,0.3);
+        border-radius: 100px;
+    }
+    .book-cover-title {
+        font-family: var(--font-display);
+        font-size: clamp(22px, 3vw, 30px);
+        font-weight: 900;
+        color: #fff;
+        line-height: 1.15;
+        margin-bottom: 8px;
+    }
+    .book-cover-subtitle {
+        font-size: 12px;
+        color: rgba(255,255,255,0.4);
+        font-weight: 400;
+        margin-bottom: 32px;
+    }
+    .book-cover-rule {
+        width: 40px;
+        height: 2px;
+        background: var(--gold);
+        margin-bottom: 32px;
+        border-radius: 2px;
+    }
+    .book-cover-author {
+        font-size: 13px;
+        font-weight: 600;
+        color: rgba(201,165,78,0.8);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+    .book-spine {
+        position: absolute;
+        top: 0;
+        left: -15px;
+        width: 30px;
+        height: 100%;
+        background: linear-gradient(90deg, #0A1628, #132C52);
+        transform: rotateY(90deg) translateZ(0px);
+        transform-origin: right center;
+        border-radius: 4px 0 0 4px;
+    }
+    .book-spine-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-90deg);
+        white-space: nowrap;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: var(--gold);
+        text-transform: uppercase;
+    }
+    .book-shadow {
+        position: absolute;
+        bottom: -30px;
+        left: 10%;
+        width: 80%;
+        height: 30px;
+        background: radial-gradient(ellipse, rgba(0,0,0,0.3), transparent 70%);
+        filter: blur(10px);
+    }
+
+    .book-info { opacity: 0; transform: translateY(40px); }
+    .book-status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent-3);
+        margin-bottom: 24px;
+    }
+    .book-status-dot {
+        width: 8px;
+        height: 8px;
+        background: var(--accent-3);
+        border-radius: 50%;
+        animation: pulse-dot 2s ease-in-out infinite;
+    }
+    .book-info h3 {
+        font-family: var(--font-display);
+        font-size: clamp(28px, 4vw, 40px);
+        font-weight: 800;
+        margin-bottom: 20px;
+        line-height: 1.15;
+    }
+    .book-info p {
+        font-size: 17px;
+        color: rgba(255,255,255,0.65);
+        line-height: 1.8;
+        margin-bottom: 16px;
+    }
+    .book-info a {
+        color: var(--gold);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(201,165,78,0.3);
+        transition: border-color 0.3s;
+    }
+    .book-info a:hover { border-color: var(--gold); }
+    .book-chapters {
+        margin-top: 32px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .book-chapter-tag {
+        font-size: 12px;
+        font-weight: 500;
+        padding: 6px 14px;
+        border-radius: 100px;
+        background: rgba(255,255,255,0.06);
+        color: rgba(255,255,255,0.5);
+        border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    @media (max-width: 900px) {
+        .book-grid { grid-template-columns: 1fr; text-align: center; }
+        .book-3d { justify-content: center; }
+    }
+
+    /* ============================================================
+       INQUIRY FORM
+       ============================================================ */
+    .inquiry-section { background: var(--morning); }
+    .inquiry-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(48px, 8vw, 96px);
+    }
+    .inquiry-form { display: flex; flex-direction: column; gap: 24px; }
+    .form-field { position: relative; }
+    .form-field label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-secondary);
+        margin-bottom: 8px;
+        letter-spacing: 0.02em;
+    }
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+        width: 100%;
+        padding: 14px 18px;
+        font-family: var(--font-body);
+        font-size: 16px;
+        color: var(--navy);
+        background: #fff;
+        border: 1.5px solid rgba(11,29,58,0.12);
+        border-radius: var(--radius-md);
+        transition: all 0.3s var(--ease-out);
+        outline: none;
+    }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+        border-color: var(--gold);
+        box-shadow: 0 0 0 4px rgba(201,165,78,0.1);
+    }
+    .form-field select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A8999' fill='none' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 16px center;
+        padding-right: 44px;
+    }
+    .form-field textarea { resize: vertical; min-height: 120px; }
+    .btn-submit {
+        align-self: flex-start;
+        background: var(--navy);
+        color: #fff;
+        padding: 16px 40px;
+        font-family: var(--font-body);
+        font-size: 15px;
+        font-weight: 600;
+        border: none;
+        border-radius: 100px;
+        cursor: pointer;
+        transition: all 0.4s var(--ease-out);
+    }
+    .btn-submit:hover {
+        background: var(--gold);
+        color: var(--navy);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md), var(--shadow-glow);
+    }
+
+    .inquiry-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+    .contact-card-modern {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 20px;
+        background: #fff;
+        border: 1px solid rgba(11,29,58,0.06);
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        color: var(--navy);
+        transition: all 0.3s var(--ease-out);
+    }
+    .contact-card-modern:hover {
+        border-color: rgba(201,165,78,0.3);
+        box-shadow: var(--shadow-sm);
+        transform: translateY(-2px);
+    }
+    .contact-card-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: rgba(201,165,78,0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    .contact-card-icon svg { width: 20px; height: 20px; color: var(--gold); }
+    .contact-card-label {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--navy);
+    }
+    .contact-card-value {
+        font-size: 13px;
+        color: var(--text-muted);
+    }
+
+    /* Newsletter */
+    .newsletter-card {
+        background: var(--navy);
+        border-radius: var(--radius-lg);
+        padding: clamp(28px, 4vw, 40px);
+        color: #fff;
+    }
+    .newsletter-card h3 {
+        font-family: var(--font-display);
+        font-size: 22px;
+        font-weight: 800;
+        margin-bottom: 8px;
+    }
+    .newsletter-card p {
+        font-size: 14px;
+        color: rgba(255,255,255,0.5);
+        margin-bottom: 20px;
+    }
+    .newsletter-form {
+        display: flex;
+        gap: 8px;
+    }
+    .newsletter-form input {
+        flex: 1;
+        padding: 12px 18px;
+        font-family: var(--font-body);
+        font-size: 14px;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 100px;
+        color: #fff;
+        outline: none;
+        transition: all 0.3s;
+    }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.3); }
+    .newsletter-form input:focus { border-color: var(--gold); background: rgba(255,255,255,0.12); }
+    .newsletter-form button {
+        padding: 12px 24px;
+        font-family: var(--font-body);
+        font-size: 14px;
+        font-weight: 600;
+        background: var(--gold);
+        color: var(--navy);
+        border: none;
+        border-radius: 100px;
+        cursor: pointer;
+        transition: all 0.3s var(--ease-out);
+        white-space: nowrap;
+    }
+    .newsletter-form button:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    @media (max-width: 900px) {
+        .inquiry-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer {
+        background: var(--navy);
+        padding: 48px 24px;
+        border-top: 1px solid rgba(201,165,78,0.1);
+    }
+    .footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+    .footer-left p {
+        font-size: 14px;
+        color: rgba(255,255,255,0.4);
+        line-height: 1.6;
+    }
+    .footer-left a {
+        color: var(--gold);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(201,165,78,0.3);
+        transition: border-color 0.3s;
+    }
+    .footer-left a:hover { border-color: var(--gold); }
+    .footer-tm {
+        font-size: 11px;
+        color: rgba(255,255,255,0.25);
+        margin-top: 8px;
+    }
+    .footer-right {
+        display: flex;
+        gap: 16px;
+    }
+    .footer-social {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255,255,255,0.4);
+        text-decoration: none;
+        transition: all 0.3s var(--ease-out);
+    }
+    .footer-social:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+        transform: translateY(-2px);
+    }
+    .footer-social svg { width: 18px; height: 18px; }
+
+    /* ============================================================
+       UTILITY ANIMATIONS
+       ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+        .marquee-track { animation: none; }
+    }
+    </style>
 </head>
 <body>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-logo" id="preloaderLogo">PMH</div>
+        <div class="preloader-bar">
+            <div class="preloader-fill" id="preloaderFill"></div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
 
     <!-- Skip Link -->
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -71,7 +1484,7 @@
                 <li><a href="#speaking">Speaking</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#book">Book</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#inquire">Contact</a></li>
                 <li><a href="#inquire" class="nav-cta">Let's Connect</a></li>
             </ul>
         </div>
@@ -79,47 +1492,108 @@
 
     <main id="main">
 
-    <!-- Hero -->
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
     <header class="hero" id="hero">
+        <canvas class="hero-canvas" id="heroCanvas"></canvas>
+        <div class="hero-gradient"></div>
         <div class="hero-content">
-            <p class="hero-pre">Welcome</p>
-            <h1 class="hero-title">Patrick M. Hodgson Sr.</h1>
-            <p class="hero-subtitle">Culture Scientist. AI Governance Architect. Builder.</p>
-            <div class="hero-rule"></div>
-            <p class="hero-tagline">"Stop trying to build one AI strategy. Build three engines."</p>
-            <div class="hero-ctas">
-                <a href="#framework" class="btn btn-gold">Explore the Framework</a>
-                <a href="#inquire" class="btn btn-ghost">Start a Conversation</a>
+            <div class="hero-badge" id="heroBadge">
+                <span class="hero-badge-dot"></span>
+                Culture &times; AI &times; Discipline
             </div>
+            <h1 class="hero-title" id="heroTitle">
+                <span class="hero-title-line"><span class="hero-title-text">Patrick M.</span></span>
+                <span class="hero-title-line"><span class="hero-title-text">Hodgson Sr.</span></span>
+            </h1>
+            <p class="hero-subtitle" id="heroSubtitle">Culture Scientist. AI Governance Architect. Builder.</p>
+            <div class="hero-rule" id="heroRule"></div>
+            <p class="hero-tagline" id="heroTagline">"Stop trying to build one AI strategy. Build three engines."</p>
+            <div class="hero-ctas" id="heroCtas">
+                <a href="#framework" class="btn btn-primary">Explore the Framework <span class="btn-arrow">&rarr;</span></a>
+                <a href="#inquire" class="btn btn-outline">Start a Conversation</a>
+            </div>
+        </div>
+        <div class="hero-scroll" id="heroScroll">
+            <span class="hero-scroll-text">Scroll</span>
+            <div class="hero-scroll-line"></div>
         </div>
     </header>
 
-    <!-- Transformation Partners -->
-    <div class="partners-bar">
-        <p class="partners-label">Transformation experience alongside</p>
-        <div class="partners-grid">
-            <span class="partner partner--deloitte">Deloitte</span>
-            <span class="partner partner--bain">Bain</span>
-            <span class="partner partner--bcg">BCG</span>
-            <span class="partner partner--accenture"><span class="accenture-gt">&gt;</span> Accenture</span>
-            <span class="partner partner--ibm">IBM</span>
-            <span class="partner partner--pwc">PwC</span>
-            <span class="partner partner--ey">EY</span>
-            <span class="partner partner--kpmg">KPMG</span>
-            <span class="partner partner--gartner">Gartner</span>
-            <span class="partner partner--microsoft">Microsoft</span>
-            <span class="partner partner--cognizant">Cognizant</span>
-            <span class="partner partner--westmonroe">West Monroe</span>
-            <span class="partner partner--sap">SAP</span>
-            <span class="partner partner--oracle">Oracle</span>
-            <span class="partner partner--medallia">Medallia</span>
+    <!-- ============================================================
+         MARQUEE — Partners
+         ============================================================ -->
+    <div class="marquee-section">
+        <p class="marquee-label">Transformation experience alongside</p>
+        <div class="marquee-track" aria-hidden="true">
+            <span class="marquee-item">Deloitte</span>
+            <span class="marquee-item">Bain</span>
+            <span class="marquee-item">BCG</span>
+            <span class="marquee-item marquee-accenture">&gt; Accenture</span>
+            <span class="marquee-item">IBM</span>
+            <span class="marquee-item">PwC</span>
+            <span class="marquee-item">EY</span>
+            <span class="marquee-item">KPMG</span>
+            <span class="marquee-item">Gartner</span>
+            <span class="marquee-item">Microsoft</span>
+            <span class="marquee-item">Cognizant</span>
+            <span class="marquee-item">West Monroe</span>
+            <span class="marquee-item">SAP</span>
+            <span class="marquee-item">Oracle</span>
+            <span class="marquee-item">Medallia</span>
+            <!-- Duplicate for seamless loop -->
+            <span class="marquee-item">Deloitte</span>
+            <span class="marquee-item">Bain</span>
+            <span class="marquee-item">BCG</span>
+            <span class="marquee-item marquee-accenture">&gt; Accenture</span>
+            <span class="marquee-item">IBM</span>
+            <span class="marquee-item">PwC</span>
+            <span class="marquee-item">EY</span>
+            <span class="marquee-item">KPMG</span>
+            <span class="marquee-item">Gartner</span>
+            <span class="marquee-item">Microsoft</span>
+            <span class="marquee-item">Cognizant</span>
+            <span class="marquee-item">West Monroe</span>
+            <span class="marquee-item">SAP</span>
+            <span class="marquee-item">Oracle</span>
+            <span class="marquee-item">Medallia</span>
         </div>
     </div>
 
-    <!-- About -->
-    <section class="section section-white fade-section" id="about">
+    <!-- ============================================================
+         STATS BAR
+         ============================================================ -->
+    <div class="stats-bar" id="statsBar">
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-number" data-target="20" data-suffix="+">0</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" data-target="5">0</div>
+                <div class="stat-label">Branded Frameworks</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" data-target="40" data-suffix="K+">0</div>
+                <div class="stat-label">Coworkers Served</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" data-target="3">0</div>
+                <div class="stat-label">AI Governance Engines</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         ABOUT
+         ============================================================ -->
+    <section class="section about-section" id="about">
         <div class="container">
-            <h2 class="section-title">About</h2>
+            <div class="section-header">
+                <span class="section-label">About</span>
+                <h2 class="section-title">At the Intersection of<br>Culture, AI &amp; Listening</h2>
+            </div>
             <div class="about-grid">
                 <div class="about-text">
                     <p>I am a Director of Culture Strategy &amp; Insights at a Fortune 500 utility, building toward becoming the CHRO of the AI era. My work sits at the intersection of organizational culture, enterprise listening, and AI governance &mdash; the spaces where human intention meets technological capability.</p>
@@ -141,506 +1615,364 @@
                     </div>
                     <div class="highlight">
                         <span class="highlight-label">IP Portfolio</span>
-                        <span class="highlight-value">5 Branded Frameworks</span>
+                        <span class="highlight-value">5 Branded Frameworks &mdash; USPTO Filed</span>
+                    </div>
+                    <div class="highlight">
+                        <span class="highlight-label">Education</span>
+                        <span class="highlight-value">Stanford GSB &bull; Golden Gate &bull; SF State &bull; SJSU</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Framework -->
-    <section class="section section-sand fade-section" id="framework">
+    <!-- ============================================================
+         FRAMEWORK — Bento Grid
+         ============================================================ -->
+    <section class="section framework-section" id="framework">
         <div class="container">
-            <h2 class="section-title">The Framework</h2>
-            <p class="section-intro">Five branded intellectual properties. One integrated discipline.</p>
-            <div class="cards-grid">
+            <div class="section-header">
+                <span class="section-label">The Framework</span>
+                <h2 class="section-title">Five Branded IPs.<br>One Integrated Discipline.</h2>
+                <p class="section-subtitle">Each framework stands on its own. Together, they form the operating system for organizations that refuse to separate who they are from how they perform.</p>
+            </div>
 
-                <div class="card card-accent-1">
-                    <div class="card-diagram">
-                        <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="100" cy="70" r="14" fill="#c9a54e" fill-opacity="0.2" stroke="#c9a54e" stroke-width="1.5"/>
-                            <text x="100" y="74" text-anchor="middle" fill="#c9a54e" font-size="8" font-weight="600">CORE</text>
-                            <circle cx="100" cy="20" r="10" fill="#c9a54e" fill-opacity="0.12" stroke="#c9a54e" stroke-width="1.2"/>
-                            <text x="100" y="23" text-anchor="middle" fill="#c9a54e" font-size="6">INPUT</text>
-                            <circle cx="155" cy="50" r="10" fill="#c9a54e" fill-opacity="0.12" stroke="#c9a54e" stroke-width="1.2"/>
-                            <text x="155" y="53" text-anchor="middle" fill="#c9a54e" font-size="5.5">PROCESS</text>
-                            <circle cx="140" cy="105" r="10" fill="#c9a54e" fill-opacity="0.12" stroke="#c9a54e" stroke-width="1.2"/>
-                            <text x="140" y="108" text-anchor="middle" fill="#c9a54e" font-size="5.5">OUTPUT</text>
-                            <circle cx="60" cy="105" r="10" fill="#c9a54e" fill-opacity="0.12" stroke="#c9a54e" stroke-width="1.2"/>
-                            <text x="60" y="108" text-anchor="middle" fill="#c9a54e" font-size="4.5">FEEDBACK</text>
-                            <circle cx="45" cy="50" r="10" fill="#c9a54e" fill-opacity="0.12" stroke="#c9a54e" stroke-width="1.2"/>
-                            <text x="45" y="53" text-anchor="middle" fill="#c9a54e" font-size="5.5">AUDIT</text>
-                            <path d="M108 23 L145 44" stroke="#c9a54e" stroke-width="1" stroke-opacity="0.6" marker-end="url(#arrow1)"/>
-                            <path d="M158 60 L147 95" stroke="#c9a54e" stroke-width="1" stroke-opacity="0.6" marker-end="url(#arrow1)"/>
-                            <path d="M130 108 L70 108" stroke="#c9a54e" stroke-width="1" stroke-opacity="0.6" marker-end="url(#arrow1)"/>
-                            <path d="M53 98 L42 60" stroke="#c9a54e" stroke-width="1" stroke-opacity="0.6" marker-end="url(#arrow1)"/>
-                            <path d="M52 43 L92 24" stroke="#c9a54e" stroke-width="1" stroke-opacity="0.6" marker-end="url(#arrow1)"/>
-                            <line x1="100" y1="30" x2="100" y2="56" stroke="#c9a54e" stroke-width="0.7" stroke-opacity="0.4" stroke-dasharray="3 2"/>
-                            <line x1="145" y1="50" x2="114" y2="65" stroke="#c9a54e" stroke-width="0.7" stroke-opacity="0.4" stroke-dasharray="3 2"/>
-                            <line x1="133" y1="100" x2="110" y2="80" stroke="#c9a54e" stroke-width="0.7" stroke-opacity="0.4" stroke-dasharray="3 2"/>
-                            <line x1="67" y1="100" x2="90" y2="80" stroke="#c9a54e" stroke-width="0.7" stroke-opacity="0.4" stroke-dasharray="3 2"/>
-                            <line x1="55" y1="50" x2="86" y2="65" stroke="#c9a54e" stroke-width="0.7" stroke-opacity="0.4" stroke-dasharray="3 2"/>
-                            <defs><marker id="arrow1" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0 0 L6 2 L0 4" fill="none" stroke="#c9a54e" stroke-width="0.8"/></marker></defs>
-                        </svg>
+            <div class="bento-grid">
+
+                <!-- Card 1: Authenticity Algorithm (spans 2 cols) -->
+                <div class="bento-card">
+                    <div class="bento-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#C9A54E" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                     </div>
-                    <span class="card-label">The Individual</span>
-                    <h3 class="card-title">The Authenticity Algorithm&trade;</h3>
-                    <p class="card-tagline">"It starts with you!"</p>
-                    <p class="card-desc">The master brand. A framework for aligning personal integrity with organizational impact. Authenticity is not a feeling &mdash; it is a system.</p>
-                    <a href="#framework-detail" class="card-learn-more card-learn-1">Learn more &darr;</a>
+                    <div class="bento-content">
+                        <div class="bento-content-left">
+                            <span class="bento-domain">The Individual</span>
+                            <h3 class="bento-title">The Authenticity Algorithm&trade;</h3>
+                            <p class="bento-tagline">"It starts with you!"</p>
+                            <p class="bento-desc">The master brand. A framework for aligning personal integrity with organizational impact. Authenticity is not a feeling &mdash; it is a system of self-awareness, preparation, and intentional action that compounds over time.</p>
+                            <div class="bento-components">
+                                <span class="bento-tag">Self-Audit</span>
+                                <span class="bento-tag">Environment Design</span>
+                                <span class="bento-tag">Ownership</span>
+                                <span class="bento-tag">Preparation</span>
+                                <span class="bento-tag">Lean Execution</span>
+                            </div>
+                        </div>
+                        <div class="bento-visual">
+                            <svg viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="100" cy="80" r="16" fill="#c9a54e" fill-opacity="0.15" stroke="#c9a54e" stroke-width="1.5"/>
+                                <text x="100" y="84" text-anchor="middle" fill="#c9a54e" font-size="8" font-weight="700" font-family="Inter">CORE</text>
+                                <circle cx="100" cy="25" r="12" fill="#c9a54e" fill-opacity="0.08" stroke="#c9a54e" stroke-width="1"/>
+                                <text x="100" y="28" text-anchor="middle" fill="#c9a54e" font-size="6" font-family="Inter">INPUT</text>
+                                <circle cx="165" cy="55" r="12" fill="#c9a54e" fill-opacity="0.08" stroke="#c9a54e" stroke-width="1"/>
+                                <text x="165" y="58" text-anchor="middle" fill="#c9a54e" font-size="5.5" font-family="Inter">PROCESS</text>
+                                <circle cx="145" cy="125" r="12" fill="#c9a54e" fill-opacity="0.08" stroke="#c9a54e" stroke-width="1"/>
+                                <text x="145" y="128" text-anchor="middle" fill="#c9a54e" font-size="5.5" font-family="Inter">OUTPUT</text>
+                                <circle cx="55" cy="125" r="12" fill="#c9a54e" fill-opacity="0.08" stroke="#c9a54e" stroke-width="1"/>
+                                <text x="55" y="128" text-anchor="middle" fill="#c9a54e" font-size="4.5" font-family="Inter">FEEDBACK</text>
+                                <circle cx="35" cy="55" r="12" fill="#c9a54e" fill-opacity="0.08" stroke="#c9a54e" stroke-width="1"/>
+                                <text x="35" y="58" text-anchor="middle" fill="#c9a54e" font-size="5.5" font-family="Inter">AUDIT</text>
+                                <path d="M110 28 L153 49" stroke="#c9a54e" stroke-width="1" stroke-opacity="0.4"/>
+                                <path d="M168 67 L152 113" stroke="#c9a54e" stroke-width="1" stroke-opacity="0.4"/>
+                                <path d="M133 128 L67 128" stroke="#c9a54e" stroke-width="1" stroke-opacity="0.4"/>
+                                <path d="M47 118 L32 67" stroke="#c9a54e" stroke-width="1" stroke-opacity="0.4"/>
+                                <path d="M45 47 L90 28" stroke="#c9a54e" stroke-width="1" stroke-opacity="0.4"/>
+                                <line x1="100" y1="37" x2="100" y2="64" stroke="#c9a54e" stroke-width="0.7" stroke-opacity="0.3" stroke-dasharray="3 2"/>
+                                <line x1="153" y1="55" x2="116" y2="74" stroke="#c9a54e" stroke-width="0.7" stroke-opacity="0.3" stroke-dasharray="3 2"/>
+                                <line x1="138" y1="118" x2="112" y2="92" stroke="#c9a54e" stroke-width="0.7" stroke-opacity="0.3" stroke-dasharray="3 2"/>
+                                <line x1="62" y1="118" x2="88" y2="92" stroke="#c9a54e" stroke-width="0.7" stroke-opacity="0.3" stroke-dasharray="3 2"/>
+                                <line x1="47" y1="55" x2="84" y2="74" stroke="#c9a54e" stroke-width="0.7" stroke-opacity="0.3" stroke-dasharray="3 2"/>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="card card-accent-2">
-                    <div class="card-diagram">
-                        <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="100" cy="70" r="8" fill="#4ea5c9" fill-opacity="0.25" stroke="#4ea5c9" stroke-width="1.5"/>
-                            <circle cx="60" cy="45" r="6" fill="#4ea5c9" fill-opacity="0.2" stroke="#4ea5c9" stroke-width="1.2"/>
-                            <circle cx="140" cy="45" r="6" fill="#4ea5c9" fill-opacity="0.2" stroke="#4ea5c9" stroke-width="1.2"/>
-                            <circle cx="55" cy="95" r="6" fill="#4ea5c9" fill-opacity="0.2" stroke="#4ea5c9" stroke-width="1.2"/>
-                            <circle cx="145" cy="95" r="6" fill="#4ea5c9" fill-opacity="0.2" stroke="#4ea5c9" stroke-width="1.2"/>
-                            <circle cx="100" cy="25" r="5" fill="#4ea5c9" fill-opacity="0.15" stroke="#4ea5c9" stroke-width="1"/>
-                            <circle cx="100" cy="115" r="5" fill="#4ea5c9" fill-opacity="0.15" stroke="#4ea5c9" stroke-width="1"/>
-                            <circle cx="30" cy="30" r="4" fill="#4ea5c9" fill-opacity="0.1" stroke="#4ea5c9" stroke-width="0.8"/>
-                            <circle cx="170" cy="30" r="4" fill="#4ea5c9" fill-opacity="0.1" stroke="#4ea5c9" stroke-width="0.8"/>
-                            <circle cx="25" cy="70" r="4" fill="#4ea5c9" fill-opacity="0.1" stroke="#4ea5c9" stroke-width="0.8"/>
-                            <circle cx="175" cy="70" r="4" fill="#4ea5c9" fill-opacity="0.1" stroke="#4ea5c9" stroke-width="0.8"/>
-                            <circle cx="30" cy="115" r="3.5" fill="#4ea5c9" fill-opacity="0.1" stroke="#4ea5c9" stroke-width="0.8"/>
-                            <circle cx="170" cy="115" r="3.5" fill="#4ea5c9" fill-opacity="0.1" stroke="#4ea5c9" stroke-width="0.8"/>
-                            <line x1="100" y1="70" x2="60" y2="45" stroke="#4ea5c9" stroke-width="0.8" stroke-opacity="0.5"/>
-                            <line x1="100" y1="70" x2="140" y2="45" stroke="#4ea5c9" stroke-width="0.8" stroke-opacity="0.5"/>
-                            <line x1="100" y1="70" x2="55" y2="95" stroke="#4ea5c9" stroke-width="0.8" stroke-opacity="0.5"/>
-                            <line x1="100" y1="70" x2="145" y2="95" stroke="#4ea5c9" stroke-width="0.8" stroke-opacity="0.5"/>
-                            <line x1="100" y1="70" x2="100" y2="25" stroke="#4ea5c9" stroke-width="0.8" stroke-opacity="0.5"/>
-                            <line x1="100" y1="70" x2="100" y2="115" stroke="#4ea5c9" stroke-width="0.8" stroke-opacity="0.5"/>
-                            <line x1="60" y1="45" x2="140" y2="45" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.3"/>
-                            <line x1="55" y1="95" x2="145" y2="95" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.3"/>
-                            <line x1="60" y1="45" x2="55" y2="95" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.3"/>
-                            <line x1="140" y1="45" x2="145" y2="95" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.3"/>
-                            <line x1="60" y1="45" x2="30" y2="30" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.25"/>
-                            <line x1="140" y1="45" x2="170" y2="30" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.25"/>
-                            <line x1="55" y1="95" x2="25" y2="70" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.25"/>
-                            <line x1="145" y1="95" x2="175" y2="70" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.25"/>
-                            <line x1="55" y1="95" x2="30" y2="115" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.25"/>
-                            <line x1="145" y1="95" x2="170" y2="115" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.25"/>
-                            <line x1="100" y1="25" x2="60" y2="45" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.3"/>
-                            <line x1="100" y1="25" x2="140" y2="45" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.3"/>
-                            <line x1="100" y1="115" x2="55" y2="95" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.3"/>
-                            <line x1="100" y1="115" x2="145" y2="95" stroke="#4ea5c9" stroke-width="0.5" stroke-opacity="0.3"/>
-                        </svg>
+                <!-- Card 2: PeoplePowered -->
+                <div class="bento-card">
+                    <div class="bento-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#4EA5C9" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
                     </div>
-                    <span class="card-label">The Organization</span>
-                    <h3 class="card-title">PeoplePowered&trade;</h3>
-                    <p class="card-tagline">"Your People &mdash; Your Superpower."</p>
-                    <p class="card-desc">Culture transformation as a measurable discipline. Moving organizations from intention to operational excellence through the power of their people.</p>
-                    <a href="#framework-detail" class="card-learn-more card-learn-2">Learn more &darr;</a>
+                    <span class="bento-domain">The Organization</span>
+                    <h3 class="bento-title">PeoplePowered&trade;</h3>
+                    <p class="bento-tagline">"Your People &mdash; Your Superpower."</p>
+                    <p class="bento-desc">Culture transformation as a measurable discipline. Moving organizations from intention to operational excellence through the power of their people.</p>
+                    <div class="bento-components">
+                        <span class="bento-tag">Culture Diagnostics</span>
+                        <span class="bento-tag">Activation</span>
+                        <span class="bento-tag">Measurement</span>
+                    </div>
                 </div>
 
-                <div class="card card-accent-3">
-                    <div class="card-diagram">
-                        <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <text x="30" y="15" text-anchor="middle" fill="#5ec989" font-size="7" font-weight="500">LISTEN</text>
-                            <text x="75" y="15" text-anchor="middle" fill="#5ec989" font-size="7" font-weight="500">LEARN</text>
-                            <text x="125" y="15" text-anchor="middle" fill="#5ec989" font-size="7" font-weight="500">ACT</text>
-                            <text x="172" y="15" text-anchor="middle" fill="#5ec989" font-size="7" font-weight="500">IMPROVE</text>
-                            <path d="M10 25 L50 25 L50 125 L10 125 Z" fill="#5ec989" fill-opacity="0.1" stroke="#5ec989" stroke-width="1"/>
-                            <path d="M55 35 L95 35 L95 115 L55 115 Z" fill="#5ec989" fill-opacity="0.12" stroke="#5ec989" stroke-width="1"/>
-                            <path d="M100 45 L145 45 L145 105 L100 105 Z" fill="#5ec989" fill-opacity="0.15" stroke="#5ec989" stroke-width="1"/>
-                            <path d="M150 55 L190 55 L190 95 L150 95 Z" fill="#5ec989" fill-opacity="0.22" stroke="#5ec989" stroke-width="1.2"/>
-                            <circle cx="20" cy="40" r="2" fill="#5ec989" fill-opacity="0.4"/>
-                            <circle cx="35" cy="55" r="2" fill="#5ec989" fill-opacity="0.4"/>
-                            <circle cx="15" cy="70" r="2" fill="#5ec989" fill-opacity="0.4"/>
-                            <circle cx="40" cy="85" r="2" fill="#5ec989" fill-opacity="0.4"/>
-                            <circle cx="25" cy="100" r="2" fill="#5ec989" fill-opacity="0.4"/>
-                            <circle cx="42" cy="45" r="2" fill="#5ec989" fill-opacity="0.4"/>
-                            <circle cx="18" cy="110" r="2" fill="#5ec989" fill-opacity="0.4"/>
-                            <circle cx="38" cy="65" r="2" fill="#5ec989" fill-opacity="0.4"/>
-                            <circle cx="68" cy="50" r="2.5" fill="#5ec989" fill-opacity="0.5"/>
-                            <circle cx="80" cy="70" r="2.5" fill="#5ec989" fill-opacity="0.5"/>
-                            <circle cx="62" cy="90" r="2.5" fill="#5ec989" fill-opacity="0.5"/>
-                            <circle cx="85" cy="100" r="2.5" fill="#5ec989" fill-opacity="0.5"/>
-                            <circle cx="75" cy="60" r="2.5" fill="#5ec989" fill-opacity="0.5"/>
-                            <circle cx="115" cy="60" r="3" fill="#5ec989" fill-opacity="0.6"/>
-                            <circle cx="130" cy="75" r="3" fill="#5ec989" fill-opacity="0.6"/>
-                            <circle cx="110" cy="90" r="3" fill="#5ec989" fill-opacity="0.6"/>
-                            <circle cx="170" cy="75" r="8" fill="#5ec989" fill-opacity="0.3" stroke="#5ec989" stroke-width="1"/>
-                            <text x="170" y="78" text-anchor="middle" fill="#5ec989" font-size="6" font-weight="600">VALUE</text>
-                            <path d="M50 75 L55 75" stroke="#5ec989" stroke-width="1.2" stroke-opacity="0.6" marker-end="url(#arrow3)"/>
-                            <path d="M95 75 L100 75" stroke="#5ec989" stroke-width="1.2" stroke-opacity="0.6" marker-end="url(#arrow3)"/>
-                            <path d="M145 75 L150 75" stroke="#5ec989" stroke-width="1.2" stroke-opacity="0.6" marker-end="url(#arrow3)"/>
-                            <defs><marker id="arrow3" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0 0 L6 2 L0 4" fill="none" stroke="#5ec989" stroke-width="0.8"/></marker></defs>
-                        </svg>
+                <!-- Card 3: Voice to Value -->
+                <div class="bento-card">
+                    <div class="bento-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#5EC989" stroke-width="2" stroke-linecap="round"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>
                     </div>
-                    <span class="card-label">The Intelligence</span>
-                    <h3 class="card-title">Voice to Value&trade;</h3>
-                    <p class="card-tagline">"Listen. Learn. Act. Improve!"</p>
-                    <p class="card-desc">Enterprise listening architecture that converts signal into strategy. A closed-loop system from workforce voice to measurable organizational value.</p>
-                    <a href="#framework-detail" class="card-learn-more card-learn-3">Learn more &darr;</a>
+                    <span class="bento-domain">The Intelligence</span>
+                    <h3 class="bento-title">Voice to Value&trade;</h3>
+                    <p class="bento-tagline">"Listen. Learn. Act. Improve!"</p>
+                    <p class="bento-desc">Enterprise listening architecture that converts signal into strategy. A closed-loop system from workforce voice to measurable organizational value.</p>
+                    <div class="bento-components">
+                        <span class="bento-tag">Listen</span>
+                        <span class="bento-tag">Learn</span>
+                        <span class="bento-tag">Act</span>
+                        <span class="bento-tag">Improve</span>
+                    </div>
                 </div>
 
-                <div class="card card-accent-4">
-                    <div class="card-diagram">
-                        <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="72" cy="52" r="28" fill="#8a6ecf" fill-opacity="0.08" stroke="#8a6ecf" stroke-width="1.2"/>
-                            <circle cx="72" cy="52" r="20" fill="#8a6ecf" fill-opacity="0.12" stroke="#8a6ecf" stroke-width="0.8"/>
-                            <rect x="67" y="22" width="10" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4"/>
-                            <rect x="67" y="74" width="10" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4"/>
-                            <rect x="42" y="47" width="6" height="10" rx="1" fill="#8a6ecf" fill-opacity="0.4"/>
-                            <rect x="96" y="47" width="6" height="10" rx="1" fill="#8a6ecf" fill-opacity="0.4"/>
-                            <rect x="48" y="29" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4" transform="rotate(-45 52 32)"/>
-                            <rect x="88" y="29" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4" transform="rotate(45 92 32)"/>
-                            <rect x="48" y="69" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4" transform="rotate(45 52 72)"/>
-                            <rect x="88" y="69" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4" transform="rotate(-45 92 72)"/>
-                            <text x="72" y="55" text-anchor="middle" fill="#8a6ecf" font-size="8" font-weight="600">ROE</text>
-                            <circle cx="132" cy="52" r="28" fill="#8a6ecf" fill-opacity="0.08" stroke="#8a6ecf" stroke-width="1.2"/>
-                            <circle cx="132" cy="52" r="20" fill="#8a6ecf" fill-opacity="0.12" stroke="#8a6ecf" stroke-width="0.8"/>
-                            <rect x="127" y="22" width="10" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4"/>
-                            <rect x="127" y="74" width="10" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4"/>
-                            <rect x="156" y="47" width="6" height="10" rx="1" fill="#8a6ecf" fill-opacity="0.4"/>
-                            <rect x="108" y="29" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4" transform="rotate(-45 112 32)"/>
-                            <rect x="148" y="29" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4" transform="rotate(45 152 32)"/>
-                            <rect x="148" y="69" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4" transform="rotate(-45 152 72)"/>
-                            <text x="132" y="55" text-anchor="middle" fill="#8a6ecf" font-size="8" font-weight="600">ROI</text>
-                            <circle cx="102" cy="100" r="28" fill="#8a6ecf" fill-opacity="0.08" stroke="#8a6ecf" stroke-width="1.2"/>
-                            <circle cx="102" cy="100" r="20" fill="#8a6ecf" fill-opacity="0.12" stroke="#8a6ecf" stroke-width="0.8"/>
-                            <rect x="97" y="126" width="10" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4"/>
-                            <rect x="72" y="95" width="6" height="10" rx="1" fill="#8a6ecf" fill-opacity="0.4"/>
-                            <rect x="126" y="95" width="6" height="10" rx="1" fill="#8a6ecf" fill-opacity="0.4"/>
-                            <rect x="78" y="117" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4" transform="rotate(45 82 120)"/>
-                            <rect x="118" y="117" width="8" height="6" rx="1" fill="#8a6ecf" fill-opacity="0.4" transform="rotate(-45 122 120)"/>
-                            <text x="102" y="103" text-anchor="middle" fill="#8a6ecf" font-size="8" font-weight="600">ROF</text>
-                            <line x1="96" y1="52" x2="104" y2="52" stroke="#8a6ecf" stroke-width="1.5" stroke-opacity="0.6" stroke-dasharray="2 2"/>
-                            <line x1="82" y1="74" x2="88" y2="82" stroke="#8a6ecf" stroke-width="1.5" stroke-opacity="0.6" stroke-dasharray="2 2"/>
-                            <line x1="122" y1="74" x2="116" y2="82" stroke="#8a6ecf" stroke-width="1.5" stroke-opacity="0.6" stroke-dasharray="2 2"/>
-                        </svg>
+                <!-- Card 4: ValueAI -->
+                <div class="bento-card">
+                    <div class="bento-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#8A6ECF" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>
                     </div>
-                    <span class="card-label">The Technology</span>
-                    <h3 class="card-title">ValueAI&trade;</h3>
-                    <p class="card-tagline">"AI that doesn't pay for itself is not AI."</p>
-                    <p class="card-desc">AI governance through the Three-Engine Paradigm: Return on Employee, Return on Investment, Return on the Future. Technology must prove its value.</p>
-                    <a href="#framework-detail" class="card-learn-more card-learn-4">Learn more &darr;</a>
+                    <span class="bento-domain">The Technology</span>
+                    <h3 class="bento-title">ValueAI&trade;</h3>
+                    <p class="bento-tagline">"AI that doesn't pay for itself is not AI."</p>
+                    <p class="bento-desc">AI governance through the Three-Engine Paradigm: Return on Employee, Return on Investment, Return on the Future.</p>
+                    <div class="bento-components">
+                        <span class="bento-tag">ROE</span>
+                        <span class="bento-tag">ROI</span>
+                        <span class="bento-tag">ROF</span>
+                    </div>
                 </div>
 
-                <div class="card card-accent-5">
-                    <div class="card-diagram">
-                        <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <line x1="100" y1="70" x2="100" y2="5" stroke="#cf6e6e" stroke-width="0.5" stroke-opacity="0.2"/>
-                            <line x1="100" y1="70" x2="100" y2="135" stroke="#cf6e6e" stroke-width="0.5" stroke-opacity="0.2"/>
-                            <line x1="100" y1="70" x2="15" y2="70" stroke="#cf6e6e" stroke-width="0.5" stroke-opacity="0.2"/>
-                            <line x1="100" y1="70" x2="185" y2="70" stroke="#cf6e6e" stroke-width="0.5" stroke-opacity="0.2"/>
-                            <line x1="100" y1="70" x2="45" y2="15" stroke="#cf6e6e" stroke-width="0.4" stroke-opacity="0.15"/>
-                            <line x1="100" y1="70" x2="155" y2="15" stroke="#cf6e6e" stroke-width="0.4" stroke-opacity="0.15"/>
-                            <line x1="100" y1="70" x2="45" y2="125" stroke="#cf6e6e" stroke-width="0.4" stroke-opacity="0.15"/>
-                            <line x1="100" y1="70" x2="155" y2="125" stroke="#cf6e6e" stroke-width="0.4" stroke-opacity="0.15"/>
-                            <line x1="100" y1="70" x2="30" y2="40" stroke="#cf6e6e" stroke-width="0.3" stroke-opacity="0.1"/>
-                            <line x1="100" y1="70" x2="170" y2="40" stroke="#cf6e6e" stroke-width="0.3" stroke-opacity="0.1"/>
-                            <line x1="100" y1="70" x2="30" y2="100" stroke="#cf6e6e" stroke-width="0.3" stroke-opacity="0.1"/>
-                            <line x1="100" y1="70" x2="170" y2="100" stroke="#cf6e6e" stroke-width="0.3" stroke-opacity="0.1"/>
-                            <circle cx="100" cy="70" r="45" fill="none" stroke="#cf6e6e" stroke-width="0.8" stroke-opacity="0.25"/>
-                            <circle cx="100" cy="70" r="30" fill="#cf6e6e" fill-opacity="0.06" stroke="#cf6e6e" stroke-width="1" stroke-opacity="0.35"/>
-                            <path d="M100 20 L108 65 L100 55 L92 65 Z" fill="#cf6e6e" fill-opacity="0.55" stroke="#cf6e6e" stroke-width="1"/>
-                            <path d="M100 120 L108 75 L100 85 L92 75 Z" fill="#cf6e6e" fill-opacity="0.2" stroke="#cf6e6e" stroke-width="0.8" stroke-opacity="0.5"/>
-                            <path d="M150 70 L105 62 L115 70 L105 78 Z" fill="#cf6e6e" fill-opacity="0.15" stroke="#cf6e6e" stroke-width="0.8" stroke-opacity="0.4"/>
-                            <path d="M50 70 L95 62 L85 70 L95 78 Z" fill="#cf6e6e" fill-opacity="0.15" stroke="#cf6e6e" stroke-width="0.8" stroke-opacity="0.4"/>
-                            <circle cx="100" cy="70" r="4" fill="#cf6e6e" fill-opacity="0.4" stroke="#cf6e6e" stroke-width="1.5"/>
-                            <text x="100" y="12" text-anchor="middle" fill="#cf6e6e" font-size="7" font-weight="600" fill-opacity="0.8">N</text>
-                            <text x="100" y="135" text-anchor="middle" fill="#cf6e6e" font-size="7" font-weight="500" fill-opacity="0.5">S</text>
-                            <text x="12" y="73" text-anchor="middle" fill="#cf6e6e" font-size="7" font-weight="500" fill-opacity="0.5">W</text>
-                            <text x="188" y="73" text-anchor="middle" fill="#cf6e6e" font-size="7" font-weight="500" fill-opacity="0.5">E</text>
-                        </svg>
+                <!-- Card 5: CourageLed -->
+                <div class="bento-card">
+                    <div class="bento-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#CF6E6E" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                     </div>
-                    <span class="card-label">The Daily Practice</span>
-                    <h3 class="card-title">CourageLed&trade;</h3>
-                    <p class="card-tagline">"Lead with Intention."</p>
-                    <p class="card-desc">Leadership development grounded in daily discipline. Courage is not a trait &mdash; it is a practice. Intentional leadership, consistently applied.</p>
-                    <a href="#framework-detail" class="card-learn-more card-learn-5">Learn more &darr;</a>
+                    <span class="bento-domain">The Daily Practice</span>
+                    <h3 class="bento-title">CourageLed&trade;</h3>
+                    <p class="bento-tagline">"Lead with Intention."</p>
+                    <p class="bento-desc">Leadership development grounded in daily discipline. Courage is not a trait &mdash; it is a practice. Intentional leadership, consistently applied.</p>
+                    <div class="bento-components">
+                        <span class="bento-tag">Standard Work</span>
+                        <span class="bento-tag">Intentional Comms</span>
+                        <span class="bento-tag">Process Leadership</span>
+                    </div>
                 </div>
 
             </div>
-
-            <!-- Framework Detail Panels -->
-            <div class="framework-detail" id="framework-detail">
-                <details class="fw-panel fw-panel-1">
-                    <summary class="fw-panel-header">The Authenticity Algorithm&trade;</summary>
-                    <div class="fw-panel-body">
-                        <div class="fw-meta"><span class="fw-domain">Domain: The Individual</span></div>
-                        <p class="fw-thesis"><strong>Core thesis:</strong> Authenticity is not a feeling &mdash; it is a system. An algorithm of self-awareness, preparation, and intentional action that compounds over time.</p>
-                        <div class="fw-components">
-                            <h4>Key Components</h4>
-                            <ul>
-                                <li>Self-audit</li>
-                                <li>Environmental design</li>
-                                <li>Ownership</li>
-                                <li>Preparation discipline</li>
-                                <li>Lean execution</li>
-                            </ul>
-                        </div>
-                        <div class="fw-application">
-                            <h4>Application</h4>
-                            <p>Personal leadership, career development, organizational authenticity</p>
-                        </div>
-                    </div>
-                </details>
-
-                <details class="fw-panel fw-panel-2">
-                    <summary class="fw-panel-header">PeoplePowered&trade;</summary>
-                    <div class="fw-panel-body">
-                        <div class="fw-meta"><span class="fw-domain">Domain: The Organization</span></div>
-                        <p class="fw-thesis"><strong>Core thesis:</strong> Culture is not a slogan posted on a wall. It is a measurable, operational system that either accelerates or decelerates everything the organization attempts.</p>
-                        <div class="fw-components">
-                            <h4>Key Components</h4>
-                            <ul>
-                                <li>Culture diagnostics</li>
-                                <li>Activation architecture</li>
-                                <li>Councils and centers of excellence</li>
-                                <li>Measurable culture indices</li>
-                            </ul>
-                        </div>
-                        <div class="fw-application">
-                            <h4>Application</h4>
-                            <p>Culture transformation, M&amp;A integration, operational excellence</p>
-                        </div>
-                    </div>
-                </details>
-
-                <details class="fw-panel fw-panel-3">
-                    <summary class="fw-panel-header">Voice to Value&trade;</summary>
-                    <div class="fw-panel-body">
-                        <div class="fw-meta"><span class="fw-domain">Domain: The Intelligence</span></div>
-                        <p class="fw-thesis"><strong>Core thesis:</strong> Every organization listens. Almost none convert what they hear into measurable value. Voice to Value is the closed-loop architecture that does.</p>
-                        <div class="fw-components">
-                            <h4>Key Components</h4>
-                            <ul>
-                                <li>Relationship listening</li>
-                                <li>Pulse listening</li>
-                                <li>Experience/transactional listening</li>
-                                <li>Lifecycle moments</li>
-                            </ul>
-                        </div>
-                        <div class="fw-application">
-                            <h4>Application</h4>
-                            <p>Enterprise listening strategy, employee experience, customer experience mirroring</p>
-                        </div>
-                    </div>
-                </details>
-
-                <details class="fw-panel fw-panel-4">
-                    <summary class="fw-panel-header">ValueAI&trade;</summary>
-                    <div class="fw-panel-body">
-                        <div class="fw-meta"><span class="fw-domain">Domain: The Technology</span></div>
-                        <p class="fw-thesis"><strong>Core thesis:</strong> AI that does not pay for itself is not AI. The Three-Engine Paradigm &mdash; Return on Employee, Return on Investment, Return on the Future &mdash; is the governance standard.</p>
-                        <div class="fw-components">
-                            <h4>Key Components</h4>
-                            <ul>
-                                <li>ROE (human potential optimization)</li>
-                                <li>ROI (capital efficiency)</li>
-                                <li>ROF (lives saved / frontier value)</li>
-                            </ul>
-                        </div>
-                        <div class="fw-application">
-                            <h4>Application</h4>
-                            <p>AI governance, responsible AI deployment, safety-critical AI in regulated industries</p>
-                        </div>
-                    </div>
-                </details>
-
-                <details class="fw-panel fw-panel-5">
-                    <summary class="fw-panel-header">CourageLed&trade;</summary>
-                    <div class="fw-panel-body">
-                        <div class="fw-meta"><span class="fw-domain">Domain: The Daily Practice</span></div>
-                        <p class="fw-thesis"><strong>Core thesis:</strong> Courage is not a personality trait. It is a daily discipline. Leaders who lead with intention &mdash; consistently, across every interaction &mdash; create environments where others can do the same.</p>
-                        <div class="fw-components">
-                            <h4>Key Components</h4>
-                            <ul>
-                                <li>Daily leader standard work</li>
-                                <li>Intentional communication</li>
-                                <li>Process-based leadership</li>
-                                <li>Vulnerability as strength</li>
-                            </ul>
-                        </div>
-                        <div class="fw-application">
-                            <h4>Application</h4>
-                            <p>Leadership development, frontline leadership, executive coaching</p>
-                        </div>
-                    </div>
-                </details>
-            </div>
-
         </div>
     </section>
 
-    <!-- Speaking -->
-    <section class="section section-white fade-section" id="speaking">
+    <!-- ============================================================
+         SPEAKING
+         ============================================================ -->
+    <section class="section speaking-section" id="speaking">
         <div class="container">
-            <h2 class="section-title">Speaking</h2>
-            <p class="section-intro">Conference keynotes and executive sessions on culture, AI governance, and enterprise listening.</p>
+            <div class="section-header">
+                <span class="section-label">Speaking</span>
+                <h2 class="section-title">Conference Keynotes &amp;<br>Executive Sessions</h2>
+                <p class="section-subtitle">On culture, AI governance, and the discipline of authenticity.</p>
+            </div>
             <div class="speaking-grid">
                 <div class="speaking-topics">
-                    <h3>Topics</h3>
-                    <ul>
-                        <li>The Authenticity Algorithm &mdash; Why culture transformation starts with the individual</li>
-                        <li>The Three-Engine AI Governance Paradigm &mdash; ROE, ROI, and ROF as the standard for enterprise AI</li>
-                        <li>Voice to Value &mdash; Building enterprise listening systems that drive measurable outcomes</li>
-                        <li>PeoplePowered Culture &mdash; Turning organizational culture into a competitive advantage</li>
-                        <li>CourageLed Leadership &mdash; The daily discipline of intentional leadership</li>
-                    </ul>
+                    <div class="speaking-topic">
+                        <div class="speaking-topic-title">The Authenticity Algorithm</div>
+                        <div class="speaking-topic-desc">Why culture transformation starts with the individual</div>
+                    </div>
+                    <div class="speaking-topic">
+                        <div class="speaking-topic-title">The Three-Engine AI Paradigm</div>
+                        <div class="speaking-topic-desc">ROE, ROI, and ROF as the standard for enterprise AI governance</div>
+                    </div>
+                    <div class="speaking-topic">
+                        <div class="speaking-topic-title">Voice to Value</div>
+                        <div class="speaking-topic-desc">Building enterprise listening systems that drive measurable outcomes</div>
+                    </div>
+                    <div class="speaking-topic">
+                        <div class="speaking-topic-title">PeoplePowered Culture</div>
+                        <div class="speaking-topic-desc">Turning organizational culture into a competitive advantage</div>
+                    </div>
+                    <div class="speaking-topic">
+                        <div class="speaking-topic-title">CourageLed Leadership</div>
+                        <div class="speaking-topic-desc">The daily discipline of intentional leadership</div>
+                    </div>
                 </div>
-                <div class="speaking-venues">
+                <div class="speaking-right">
                     <div class="video-placeholder">
-                        <svg class="video-play-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="24" cy="24" r="23" stroke="#C9A54E" stroke-width="2"/>
-                            <path d="M19 14l16 10-16 10V14z" fill="#C9A54E"/>
-                        </svg>
-                        <span>Speaking Demo Coming Soon</span>
+                        <div class="video-play-btn">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="#C9A54E"/></svg>
+                        </div>
+                        <span class="video-label">Speaking Reel Coming Soon</span>
                     </div>
-                    <h3>Past Venues &amp; Partners</h3>
-                    <div class="venue-list">
-                        <span class="venue">IBM</span>
-                        <span class="venue">Microsoft</span>
-                        <span class="venue">West Monroe</span>
-                        <span class="venue">Cognizant</span>
+                    <div>
+                        <p style="font-size:13px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px;">Past Venues &amp; Partners</p>
+                        <div class="venue-grid">
+                            <span class="venue-tag">IBM</span>
+                            <span class="venue-tag">Microsoft</span>
+                            <span class="venue-tag">West Monroe</span>
+                            <span class="venue-tag">Cognizant</span>
+                        </div>
                     </div>
-                    <p class="speaking-cta">Interested in booking Patrick for your next event? <a href="#inquire">Start a conversation.</a></p>
+                    <p style="font-size:15px; color:var(--text-secondary);">Interested in booking Patrick for your next event? <a href="#inquire" style="color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(201,165,78,0.3);">Start a conversation.</a></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services -->
-    <section class="section section-sand fade-section" id="services">
+    <!-- ============================================================
+         SERVICES
+         ============================================================ -->
+    <section class="section services-section" id="services">
         <div class="container">
-            <h2 class="section-title">Engage</h2>
-            <p class="section-intro">Four ways to work together. Start with a conversation.</p>
+            <div class="section-header">
+                <span class="section-label">Engage</span>
+                <h2 class="section-title">Four Ways to<br>Work Together</h2>
+                <p class="section-subtitle">Start with a conversation. No pitch, no pressure &mdash; just clarity.</p>
+            </div>
             <div class="services-grid">
-
                 <div class="service-card service-card-featured">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 40 40" fill="none" stroke="#C9A54E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="20" r="16"/><path d="M20 12v8l5.5 5.5"/></svg>
+                    <div class="service-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                     </div>
                     <span class="service-tier">Discovery Call</span>
                     <p class="service-desc">A conversation to explore alignment. No pitch, no pressure &mdash; just clarity on whether we can create value together.</p>
                     <a href="#inquire" class="btn-service">Schedule a Call</a>
                 </div>
-
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 40 40" fill="none" stroke="#C9A54E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="14" r="6"/><path d="M8 36c0-6.627 5.373-12 12-12s12 5.373 12 12"/><path d="M26 14l4 4-4 4"/></svg>
+                    <div class="service-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M3 21v-2a7 7 0 0114 0v2"/></svg>
                     </div>
                     <span class="service-tier">Executive Coaching</span>
                     <p class="service-desc">One-on-one sessions for senior leaders navigating culture transformation, AI governance, or career inflection points.</p>
                     <a href="#inquire" class="btn-service">Inquire</a>
                 </div>
-
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 40 40" fill="none" stroke="#C9A54E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 30V16l14-10 14 10v14"/><rect x="16" y="24" width="8" height="10"/><path d="M4 34h32"/></svg>
+                    <div class="service-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M16.36 16.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M16.36 7.64l1.42-1.42"/><circle cx="12" cy="12" r="5"/></svg>
                     </div>
                     <span class="service-tier">Speaking Engagement</span>
-                    <p class="service-desc">Conference keynotes, executive offsites, and leadership development sessions built around your organization's context.</p>
+                    <p class="service-desc">Conference keynotes, executive offsites, and leadership sessions built around your organization's context.</p>
                     <a href="#inquire" class="btn-service">Inquire</a>
                 </div>
-
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 40 40" fill="none" stroke="#C9A54E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="32" height="32" rx="4"/><path d="M12 14h16M12 20h16M12 26h10"/><circle cx="30" cy="30" r="6" fill="#FFFFFF" stroke="#C9A54E"/><path d="M28 30h4M30 28v4"/></svg>
+                    <div class="service-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/><path d="M3 9h3M18 9h3M3 15h3M18 15h3M9 3v3M15 3v3M9 18v3M15 18v3"/></svg>
                     </div>
                     <span class="service-tier">Culture Strategy Advisory</span>
                     <p class="service-desc">Hands-on advisory for organizations ready to operationalize culture as a measurable system. Assessment, architecture, activation.</p>
                     <a href="#inquire" class="btn-service">Inquire</a>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Inquiry Form -->
-    <section class="section section-white fade-section" id="inquire">
-        <div class="container container-narrow">
-            <h2 class="section-title">Start a Conversation</h2>
-            <p class="section-intro">Tell me what you are working on and which area is the priority. I will follow up personally.</p>
-            <form class="inquiry-form" action="https://formspree.io/f/xnjgywbg" method="POST">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required autocomplete="name">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required autocomplete="email">
-                </div>
-                <div class="form-group">
-                    <label for="organization">Organization</label>
-                    <input type="text" id="organization" name="organization" autocomplete="organization">
-                </div>
-                <div class="form-group">
-                    <label for="interest">What are you most interested in?</label>
-                    <select id="interest" name="interest" required>
-                        <option value="" disabled selected>Select a priority</option>
-                        <option value="Discovery Call">Discovery Call &mdash; Explore alignment</option>
-                        <option value="Executive Coaching">Executive Coaching &mdash; Leadership development</option>
-                        <option value="Speaking Engagement">Speaking Engagement &mdash; Keynote or offsite</option>
-                        <option value="Culture Strategy Advisory">Culture Strategy Advisory &mdash; Transformation engagement</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Tell me more about what you are working on</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Send Inquiry</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Book -->
-    <section class="section section-navy fade-section" id="book">
+    <!-- ============================================================
+         BOOK
+         ============================================================ -->
+    <section class="section book-section" id="book">
         <div class="container">
-            <h2 class="section-title">The Book</h2>
             <div class="book-grid">
-                <div class="book-cover">
-                    <div class="book-placeholder">
-                        <span class="book-placeholder-label">Coming Soon</span>
-                        <span class="book-placeholder-title">The Authenticity Algorithm</span>
-                        <span class="book-placeholder-author">Patrick M. Hodgson Sr.</span>
+                <div class="book-3d">
+                    <div class="book-3d-inner">
+                        <div class="book-cover-front">
+                            <span class="book-cover-badge">Forthcoming</span>
+                            <h3 class="book-cover-title">The Authenticity Algorithm</h3>
+                            <p class="book-cover-subtitle">Culture &times; AI &times; Discipline</p>
+                            <div class="book-cover-rule"></div>
+                            <span class="book-cover-author">Patrick M. Hodgson Sr.</span>
+                        </div>
+                        <div class="book-spine">
+                            <span class="book-spine-text">The Authenticity Algorithm</span>
+                        </div>
+                        <div class="book-shadow"></div>
                     </div>
                 </div>
-                <div class="book-text">
+                <div class="book-info">
+                    <span class="section-label">The Book</span>
+                    <div class="book-status-badge">
+                        <span class="book-status-dot"></span>
+                        Section I Complete &mdash; In Progress
+                    </div>
                     <h3>The Authenticity Algorithm</h3>
-                    <p class="book-status">In Progress</p>
                     <p>What if the most powerful algorithm in your organization is not artificial intelligence &mdash; but authentic intention?</p>
-                    <p><em>The Authenticity Algorithm</em> is a framework for leaders who refuse to separate who they are from how they lead. It connects personal integrity, culture strategy, enterprise listening, AI governance, and courageous leadership into a single, integrated discipline.</p>
+                    <p>A framework for leaders who refuse to separate who they are from how they lead. Connecting personal integrity, culture strategy, enterprise listening, AI governance, and courageous leadership into a single, integrated discipline.</p>
                     <p>This is not a book about soft skills. It is a book about systems &mdash; the systems that determine whether organizations thrive or merely survive in the age of AI.</p>
-                    <p class="book-note">Publication details forthcoming. Join the conversation on <a href="https://linkedin.com/in/patrickhodgson" target="_blank" rel="noopener">LinkedIn</a> for updates.</p>
+                    <div class="book-chapters">
+                        <span class="book-chapter-tag">Introduction</span>
+                        <span class="book-chapter-tag">Courage to Lead</span>
+                        <span class="book-chapter-tag">Your Purpose</span>
+                        <span class="book-chapter-tag">Your Environment</span>
+                        <span class="book-chapter-tag">Ownership</span>
+                        <span class="book-chapter-tag">Preparation</span>
+                        <span class="book-chapter-tag">The Lean Standard</span>
+                        <span class="book-chapter-tag">Your Moment</span>
+                    </div>
+                    <p style="margin-top:24px;"><a href="https://linkedin.com/in/phodgson" target="_blank" rel="noopener">Follow on LinkedIn</a> for updates.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section class="section section-sand fade-section" id="contact">
-        <div class="container container-narrow">
-            <h2 class="section-title">Contact</h2>
-            <p class="section-intro">For speaking inquiries, collaboration, or conversation.</p>
-            <div class="contact-links">
-                <a href="https://linkedin.com/in/patrickhodgson" target="_blank" rel="noopener" class="contact-card">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="mailto:info@authenticityalgorithm.com" class="contact-card">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
-                    <span>Email</span>
-                </a>
-                <a href="#inquire" class="contact-card">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-                    <span>Inquire</span>
-                </a>
+    <!-- ============================================================
+         INQUIRY + CONTACT
+         ============================================================ -->
+    <section class="section inquiry-section" id="inquire">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Contact</span>
+                <h2 class="section-title">Start a Conversation</h2>
+                <p class="section-subtitle">Tell me what you are working on and which area is the priority. I will follow up personally.</p>
             </div>
-
-            <!-- Newsletter -->
-            <div class="newsletter">
-                <h3>The Monday Algorithm</h3>
-                <p>Weekly insights on culture, AI governance, and leadership.</p>
-                <form class="newsletter-form" action="#" method="POST">
-                    <input type="email" name="newsletter_email" placeholder="Enter your email" required aria-label="Email for newsletter">
-                    <button type="submit">Subscribe</button>
+            <div class="inquiry-grid">
+                <form class="inquiry-form" action="https://formspree.io/f/xnjgywbg" method="POST">
+                    <div class="form-field">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required autocomplete="name">
+                    </div>
+                    <div class="form-field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required autocomplete="email">
+                    </div>
+                    <div class="form-field">
+                        <label for="organization">Organization</label>
+                        <input type="text" id="organization" name="organization" autocomplete="organization">
+                    </div>
+                    <div class="form-field">
+                        <label for="interest">What are you most interested in?</label>
+                        <select id="interest" name="interest" required>
+                            <option value="" disabled selected>Select a priority</option>
+                            <option value="Discovery Call">Discovery Call &mdash; Explore alignment</option>
+                            <option value="Executive Coaching">Executive Coaching &mdash; Leadership development</option>
+                            <option value="Speaking Engagement">Speaking Engagement &mdash; Keynote or offsite</option>
+                            <option value="Culture Strategy Advisory">Culture Strategy Advisory &mdash; Transformation engagement</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="message">Tell me more about what you are working on</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Inquiry</button>
                 </form>
+                <div class="inquiry-sidebar">
+                    <a href="https://linkedin.com/in/phodgson" target="_blank" rel="noopener" class="contact-card-modern">
+                        <div class="contact-card-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </div>
+                        <div>
+                            <div class="contact-card-label">LinkedIn</div>
+                            <div class="contact-card-value">linkedin.com/in/phodgson</div>
+                        </div>
+                    </a>
+                    <a href="mailto:info@authenticityalgorithm.com" class="contact-card-modern">
+                        <div class="contact-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+                        </div>
+                        <div>
+                            <div class="contact-card-label">Email</div>
+                            <div class="contact-card-value">info@authenticityalgorithm.com</div>
+                        </div>
+                    </a>
+                    <div class="newsletter-card">
+                        <h3>The Monday Algorithm</h3>
+                        <p>Weekly insights on culture, AI governance, and leadership.</p>
+                        <form class="newsletter-form" action="#" method="POST">
+                            <input type="email" name="newsletter_email" placeholder="Enter your email" required aria-label="Email for newsletter">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -649,28 +1981,120 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Patrick M. Hodgson Sr. All rights reserved.</p>
-            <p class="footer-tm">The Authenticity Algorithm&trade;, PeoplePowered&trade;, Voice to Value&trade;, ValueAI&trade;, and CourageLed&trade; are trademarks of Patrick M. Hodgson Sr.</p>
-            <p class="footer-press"><a href="/press">Press &amp; Media</a></p>
+        <div class="footer-inner">
+            <div class="footer-left">
+                <p>&copy; 2026 Patrick M. Hodgson Sr. All rights reserved.</p>
+                <p class="footer-tm">The Authenticity Algorithm&trade;, PeoplePowered&trade;, Voice to Value&trade;, ValueAI&trade;, and CourageLed&trade; are trademarks of Patrick M. Hodgson Sr.</p>
+            </div>
+            <div class="footer-right">
+                <a href="https://linkedin.com/in/phodgson" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <a href="mailto:info@authenticityalgorithm.com" class="footer-social" aria-label="Email">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+                </a>
+            </div>
         </div>
     </footer>
 
-    <!-- Minimal JS -->
+    <!-- ============================================================
+         JAVASCRIPT — GSAP Animations + Interactions
+         ============================================================ -->
     <script>
-    (function() {
-        // Scroll-triggered nav shadow
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // ── Preloader ──
+        var preloader = document.getElementById('preloader');
+        var preloaderLogo = document.getElementById('preloaderLogo');
+        var preloaderFill = document.getElementById('preloaderFill');
+
+        preloaderLogo.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        preloaderLogo.style.opacity = '1';
+        preloaderLogo.style.transform = 'translateY(0)';
+        preloaderFill.style.width = '100%';
+
+        setTimeout(function() {
+            preloader.classList.add('done');
+            document.body.style.overflow = '';
+            initAnimations();
+        }, 1600);
+
+        // ── Hero Canvas — Floating Particles ──
+        var canvas = document.getElementById('heroCanvas');
+        var ctx = canvas.getContext('2d');
+        var particles = [];
+        var particleCount = 60;
+        var mouse = { x: -1000, y: -1000 };
+
+        function resizeCanvas() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        for (var i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.3,
+                vy: (Math.random() - 0.5) * 0.3,
+                r: Math.random() * 2 + 0.5,
+                opacity: Math.random() * 0.15 + 0.05,
+                color: ['#C9A54E', '#89CFF0', '#8A6ECF', '#5EC989'][Math.floor(Math.random() * 4)]
+            });
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (var i = 0; i < particles.length; i++) {
+                var p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0) p.x = canvas.width;
+                if (p.x > canvas.width) p.x = 0;
+                if (p.y < 0) p.y = canvas.height;
+                if (p.y > canvas.height) p.y = 0;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.globalAlpha = p.opacity;
+                ctx.fill();
+
+                // Draw connections
+                for (var j = i + 1; j < particles.length; j++) {
+                    var p2 = particles[j];
+                    var dx = p.x - p2.x;
+                    var dy = p.y - p2.y;
+                    var dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 150) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = '#C9A54E';
+                        ctx.globalAlpha = (1 - dist / 150) * 0.06;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+            ctx.globalAlpha = 1;
+            requestAnimationFrame(drawParticles);
+        }
+        drawParticles();
+
+        // ── Nav scroll ──
         var nav = document.getElementById('nav');
-        var scrollThreshold = 20;
         window.addEventListener('scroll', function() {
-            if (window.scrollY > scrollThreshold) {
+            if (window.scrollY > 20) {
                 nav.classList.add('scrolled');
             } else {
                 nav.classList.remove('scrolled');
             }
         }, { passive: true });
 
-        // Hamburger menu toggle
+        // ── Hamburger ──
         var hamburger = document.getElementById('hamburger');
         var navLinks = document.getElementById('navLinks');
         var overlay = document.getElementById('mobileOverlay');
@@ -682,45 +2106,138 @@
             overlay.classList.toggle('active');
             document.body.style.overflow = isOpen ? '' : 'hidden';
         }
-
         function closeMenu() {
             hamburger.setAttribute('aria-expanded', 'false');
             navLinks.classList.remove('open');
             overlay.classList.remove('active');
             document.body.style.overflow = '';
         }
-
         hamburger.addEventListener('click', toggleMenu);
         overlay.addEventListener('click', closeMenu);
+        navLinks.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
 
-        // Close menu on nav link click
-        var links = navLinks.querySelectorAll('a');
-        for (var i = 0; i < links.length; i++) {
-            links[i].addEventListener('click', closeMenu);
-        }
+        // ── Scroll Progress ──
+        var scrollProgress = document.getElementById('scrollProgress');
+        window.addEventListener('scroll', function() {
+            var scrollTop = document.documentElement.scrollTop;
+            var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var progress = scrollTop / scrollHeight;
+            scrollProgress.style.transform = 'scaleX(' + progress + ')';
+        }, { passive: true });
 
-        // Fade-up on scroll (Intersection Observer)
-        var fadeSections = document.querySelectorAll('.fade-section');
-        if ('IntersectionObserver' in window) {
-            var observer = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
+        // ── GSAP Animations ──
+        function initAnimations() {
+            if (typeof gsap === 'undefined') {
+                // Fallback: show everything
+                document.querySelectorAll('.hero-badge, .hero-subtitle, .hero-rule, .hero-tagline, .hero-ctas, .hero-scroll, .stat, .bento-card, .service-card, .book-info').forEach(function(el) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'none';
                 });
-            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+                document.querySelectorAll('.hero-title-text').forEach(function(el) {
+                    el.style.transform = 'translateY(0)';
+                });
+                return;
+            }
 
-            fadeSections.forEach(function(section) {
-                observer.observe(section);
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Hero entrance
+            var heroTl = gsap.timeline({ delay: 0.2 });
+            heroTl
+                .to('.hero-badge', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
+                .to('.hero-title-text', { y: 0, duration: 1, ease: 'power4.out', stagger: 0.15 }, '-=0.5')
+                .to('.hero-title', { opacity: 1, duration: 0.01 }, '<')
+                .to('.hero-subtitle', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.6')
+                .to('.hero-rule', { opacity: 1, scaleX: 1, duration: 0.6, ease: 'power3.out' }, '-=0.4')
+                .to('.hero-tagline', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4')
+                .to('.hero-ctas', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4')
+                .to('.hero-scroll', { opacity: 1, duration: 0.8, ease: 'power3.out' }, '-=0.3');
+
+            // Stats counter
+            ScrollTrigger.create({
+                trigger: '#statsBar',
+                start: 'top 80%',
+                once: true,
+                onEnter: function() {
+                    gsap.to('.stat', { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: 'power3.out' });
+
+                    document.querySelectorAll('.stat-number').forEach(function(el) {
+                        var target = parseInt(el.dataset.target);
+                        var suffix = el.dataset.suffix || '';
+                        var obj = { val: 0 };
+                        gsap.to(obj, {
+                            val: target,
+                            duration: 2,
+                            ease: 'power2.out',
+                            onUpdate: function() {
+                                el.textContent = Math.round(obj.val) + suffix;
+                            }
+                        });
+                    });
+                }
             });
-        } else {
-            // Fallback: show all sections
-            fadeSections.forEach(function(section) {
-                section.classList.add('visible');
+
+            // About section
+            gsap.from('.about-text p', {
+                scrollTrigger: { trigger: '.about-section', start: 'top 70%' },
+                opacity: 0, y: 30, duration: 0.8, stagger: 0.15, ease: 'power3.out'
+            });
+            gsap.from('.highlight', {
+                scrollTrigger: { trigger: '.about-highlights', start: 'top 75%' },
+                opacity: 0, x: 30, duration: 0.6, stagger: 0.1, ease: 'power3.out'
+            });
+
+            // Bento cards
+            gsap.to('.bento-card', {
+                scrollTrigger: { trigger: '.bento-grid', start: 'top 75%' },
+                opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out'
+            });
+
+            // Speaking topics
+            gsap.from('.speaking-topic', {
+                scrollTrigger: { trigger: '.speaking-section', start: 'top 65%' },
+                opacity: 0, x: -30, duration: 0.6, stagger: 0.1, ease: 'power3.out'
+            });
+
+            // Service cards
+            gsap.to('.service-card', {
+                scrollTrigger: { trigger: '.services-grid', start: 'top 75%' },
+                opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out'
+            });
+
+            // Book section
+            gsap.from('.book-3d-inner', {
+                scrollTrigger: { trigger: '.book-section', start: 'top 70%' },
+                opacity: 0, x: -60, rotateY: -40, duration: 1.2, ease: 'power3.out'
+            });
+            gsap.to('.book-info', {
+                scrollTrigger: { trigger: '.book-section', start: 'top 65%' },
+                opacity: 1, y: 0, duration: 0.8, ease: 'power3.out'
+            });
+
+            // Section headers
+            document.querySelectorAll('.section-header').forEach(function(header) {
+                gsap.from(header.children, {
+                    scrollTrigger: { trigger: header, start: 'top 80%' },
+                    opacity: 0, y: 30, duration: 0.8, stagger: 0.1, ease: 'power3.out'
+                });
+            });
+
+            // Parallax effects
+            gsap.to('.hero-content', {
+                scrollTrigger: {
+                    trigger: '.hero',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: true
+                },
+                y: 100,
+                opacity: 0.3
             });
         }
-    })();
+    });
     </script>
 
 </body>
