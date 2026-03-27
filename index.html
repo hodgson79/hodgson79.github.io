@@ -395,6 +395,8 @@
     .hero-title-line {
         display: block;
         overflow: hidden;
+        padding-bottom: 0.1em;
+        margin-bottom: -0.1em;
     }
     .hero-title-text {
         display: block;
@@ -487,6 +489,37 @@
         transition: transform 0.3s var(--ease-out);
     }
     .btn:hover .btn-arrow { transform: translateX(4px); }
+
+    /* Hero proof strip */
+    .hero-proof {
+        margin-top: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        flex-wrap: wrap;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    .hero-proof-item {
+        font-size: 13px;
+        color: var(--text-muted);
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .hero-proof-num {
+        font-family: var(--font-display);
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--gold);
+    }
+    .hero-proof-divider {
+        width: 1px;
+        height: 20px;
+        background: var(--border-light);
+    }
 
     /* Scroll indicator */
     .hero-scroll {
@@ -1438,6 +1471,94 @@
     .footer-social svg { width: 18px; height: 18px; }
 
     /* ============================================================
+       INLINE CTA — Newsletter / Lead Magnet
+       ============================================================ */
+    .about-cta {
+        margin-top: 32px; padding: 28px;
+        background: rgba(201,165,78,0.04); border: 1px solid rgba(201,165,78,0.15);
+        border-radius: var(--radius-md);
+    }
+    .about-cta h4 {
+        font-family: var(--font-display); font-size: 18px; font-weight: 700;
+        color: var(--navy); margin-bottom: 8px;
+    }
+    .about-cta p { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; }
+    .inline-email-form { display: flex; gap: 8px; }
+    .inline-email-form input {
+        flex: 1; padding: 12px 18px; font-family: var(--font-body); font-size: 14px;
+        background: #fff; border: 1.5px solid rgba(11,29,58,0.12);
+        border-radius: 100px; color: var(--navy); outline: none; transition: all 0.3s;
+    }
+    .inline-email-form input::placeholder { color: var(--text-muted); }
+    .inline-email-form input:focus { border-color: var(--gold); box-shadow: 0 0 0 4px rgba(201,165,78,0.1); }
+    .inline-email-form button {
+        padding: 12px 24px; font-family: var(--font-body); font-size: 14px; font-weight: 600;
+        background: var(--gold); color: var(--navy); border: none; border-radius: 100px;
+        cursor: pointer; transition: all 0.3s var(--ease-out); white-space: nowrap;
+    }
+    .inline-email-form button:hover { background: var(--gold-light); transform: translateY(-1px); }
+    @media (max-width: 600px) { .inline-email-form { flex-direction: column; } }
+
+    /* Framework CTA */
+    .framework-cta {
+        margin-top: 48px; text-align: center; padding: 40px;
+        background: rgba(201,165,78,0.04); border: 1px solid rgba(201,165,78,0.12);
+        border-radius: var(--radius-lg);
+    }
+    .framework-cta h3 {
+        font-family: var(--font-display); font-size: 22px; font-weight: 800;
+        color: var(--navy); margin-bottom: 8px;
+    }
+    .framework-cta p { font-size: 15px; color: var(--text-muted); margin-bottom: 20px; }
+
+    /* Quote Section */
+    .quote-section {
+        background: var(--navy); padding: clamp(64px, 8vw, 96px) 24px;
+        text-align: center; position: relative; overflow: hidden;
+    }
+    .quote-section::before {
+        content: ''; position: absolute; inset: 0;
+        background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(201,165,78,0.06), transparent);
+    }
+    .quote-mark {
+        font-family: var(--font-display); font-size: 120px; line-height: 0.5;
+        color: rgba(201,165,78,0.15); margin-bottom: 24px; position: relative;
+    }
+    .quote-text {
+        font-family: var(--font-display); font-size: clamp(22px, 3vw, 32px);
+        font-weight: 700; font-style: italic; color: #fff;
+        max-width: 800px; margin: 0 auto 24px; line-height: 1.4; position: relative;
+    }
+    .quote-attr {
+        font-size: 14px; color: rgba(255,255,255,0.4); font-weight: 500; position: relative;
+    }
+
+    /* Book notify */
+    .book-notify {
+        margin-top: 32px; padding: 24px; background: rgba(201,165,78,0.06);
+        border: 1px solid rgba(201,165,78,0.15); border-radius: var(--radius-md);
+    }
+    .book-notify p {
+        font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 12px;
+    }
+    .book-notify .inline-email-form input {
+        background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.12);
+        color: #fff;
+    }
+    .book-notify .inline-email-form input::placeholder { color: rgba(255,255,255,0.3); }
+    .book-notify .inline-email-form input:focus { border-color: var(--gold); background: rgba(255,255,255,0.12); }
+
+    /* Sticky Mobile CTA */
+    .sticky-cta {
+        display: none; position: fixed; bottom: 0; left: 0; right: 0;
+        padding: 12px 16px; background: rgba(250,252,254,0.95);
+        backdrop-filter: blur(20px); border-top: 1px solid rgba(11,29,58,0.06);
+        z-index: 900; justify-content: center;
+    }
+    .sticky-cta .btn { width: 100%; justify-content: center; padding: 14px; }
+    @media (max-width: 900px) { .sticky-cta { display: flex; } main { padding-bottom: 72px; } }
+
+    /* ============================================================
        UTILITY ANIMATIONS
        ============================================================ */
     @media (prefers-reduced-motion: reduce) {
@@ -1511,8 +1632,17 @@
             <div class="hero-rule" id="heroRule"></div>
             <p class="hero-tagline" id="heroTagline">"Stop trying to build one AI strategy. Build three engines."</p>
             <div class="hero-ctas" id="heroCtas">
-                <a href="#framework" class="btn btn-primary">Explore the Framework <span class="btn-arrow">&rarr;</span></a>
-                <a href="#inquire" class="btn btn-outline">Start a Conversation</a>
+                <a href="#inquire" class="btn btn-gold">Start a Conversation <span class="btn-arrow">&rarr;</span></a>
+                <a href="#framework" class="btn btn-outline">Explore the Framework</a>
+            </div>
+            <div class="hero-proof" id="heroProof">
+                <div class="hero-proof-item"><span class="hero-proof-num">20+</span> Years</div>
+                <div class="hero-proof-divider"></div>
+                <div class="hero-proof-item"><span class="hero-proof-num">5</span> Frameworks</div>
+                <div class="hero-proof-divider"></div>
+                <div class="hero-proof-item"><span class="hero-proof-num">40K</span> Coworkers</div>
+                <div class="hero-proof-divider"></div>
+                <div class="hero-proof-item"><span class="hero-proof-num">F500</span> Utility</div>
             </div>
         </div>
         <div class="hero-scroll" id="heroScroll">
@@ -1599,6 +1729,14 @@
                     <p>I am a Director of Culture Strategy &amp; Insights at a Fortune 500 utility, building toward becoming the CHRO of the AI era. My work sits at the intersection of organizational culture, enterprise listening, and AI governance &mdash; the spaces where human intention meets technological capability.</p>
                     <p>Over the course of my career, I have developed five branded intellectual property frameworks that form a unified system for transforming how organizations listen, lead, and create value. Each framework stands on its own. Together, they form a discipline.</p>
                     <p>I believe that AI which does not pay for itself is not AI. That culture is not a slogan but a measurable system. And that authenticity &mdash; real, operational authenticity &mdash; is the algorithm that makes everything else work.</p>
+                    <div class="about-cta">
+                        <h4>The Monday Algorithm</h4>
+                        <p>Weekly insights on culture, AI governance, and leadership. Join 500+ leaders.</p>
+                        <form class="inline-email-form" action="#" method="POST">
+                            <input type="email" name="email" placeholder="Enter your email" required aria-label="Email for newsletter">
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
                 </div>
                 <div class="about-highlights">
                     <div class="highlight">
@@ -1753,8 +1891,25 @@
                 </div>
 
             </div>
+
+            <!-- Framework download CTA -->
+            <div class="framework-cta">
+                <h3>Get the Framework Overview</h3>
+                <p>A one-page visual guide to all five frameworks and how they connect.</p>
+                <form class="inline-email-form" action="#" method="POST" style="max-width:440px; margin:0 auto;">
+                    <input type="email" name="email" placeholder="Enter your email" required aria-label="Email for framework guide">
+                    <button type="submit">Download</button>
+                </form>
+            </div>
         </div>
     </section>
+
+    <!-- QUOTE -->
+    <div class="quote-section">
+        <div class="quote-mark">&ldquo;</div>
+        <blockquote class="quote-text">The false binary is the enemy. Architecture is the answer.</blockquote>
+        <p class="quote-attr">&mdash; Patrick M. Hodgson Sr.</p>
+    </div>
 
     <!-- ============================================================
          SPEAKING
@@ -1899,7 +2054,13 @@
                         <span class="book-chapter-tag">The Lean Standard</span>
                         <span class="book-chapter-tag">Your Moment</span>
                     </div>
-                    <p style="margin-top:24px;"><a href="https://linkedin.com/in/phodgson" target="_blank" rel="noopener">Follow on LinkedIn</a> for updates.</p>
+                    <div class="book-notify">
+                        <p>Get notified when the book launches.</p>
+                        <form class="inline-email-form" action="#" method="POST">
+                            <input type="email" name="email" placeholder="Enter your email" required aria-label="Email for book launch notification">
+                            <button type="submit">Notify Me</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1978,6 +2139,11 @@
     </section>
 
     </main>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="sticky-cta">
+        <a href="#inquire" class="btn btn-gold">Start a Conversation <span class="btn-arrow">&rarr;</span></a>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -2131,7 +2297,7 @@
         function initAnimations() {
             if (typeof gsap === 'undefined') {
                 // Fallback: show everything
-                document.querySelectorAll('.hero-badge, .hero-subtitle, .hero-rule, .hero-tagline, .hero-ctas, .hero-scroll, .stat, .bento-card, .service-card, .book-info').forEach(function(el) {
+                document.querySelectorAll('.hero-badge, .hero-subtitle, .hero-rule, .hero-tagline, .hero-ctas, .hero-proof, .hero-scroll, .stat, .bento-card, .service-card, .book-info').forEach(function(el) {
                     el.style.opacity = '1';
                     el.style.transform = 'none';
                 });
@@ -2153,6 +2319,7 @@
                 .to('.hero-rule', { opacity: 1, scaleX: 1, duration: 0.6, ease: 'power3.out' }, '-=0.4')
                 .to('.hero-tagline', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4')
                 .to('.hero-ctas', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4')
+                .to('.hero-proof', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3')
                 .to('.hero-scroll', { opacity: 1, duration: 0.8, ease: 'power3.out' }, '-=0.3');
 
             // Stats counter
@@ -2223,6 +2390,12 @@
                     scrollTrigger: { trigger: header, start: 'top 80%' },
                     opacity: 0, y: 30, duration: 0.8, stagger: 0.1, ease: 'power3.out'
                 });
+            });
+
+            // Quote section
+            gsap.from('.quote-mark, .quote-text, .quote-attr', {
+                scrollTrigger: { trigger: '.quote-section', start: 'top 75%' },
+                opacity: 0, y: 30, duration: 0.8, stagger: 0.15, ease: 'power3.out'
             });
 
             // Parallax effects
