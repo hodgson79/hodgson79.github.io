@@ -1528,7 +1528,15 @@
         font-family: var(--font-display); font-size: clamp(22px, 3vw, 32px);
         font-weight: 700; font-style: italic; color: #fff;
         max-width: 800px; margin: 0 auto 24px; line-height: 1.4; position: relative;
+        transition: opacity 0.6s ease, transform 0.4s ease;
     }
+    .quote-text.fading { opacity: 0; transform: translateY(8px); }
+    .quote-source {
+        font-size: 12px; color: rgba(201,165,78,0.5); font-weight: 500;
+        margin-top: 8px; font-style: italic; position: relative;
+        transition: opacity 0.6s ease;
+    }
+    .quote-source.fading { opacity: 0; }
     .quote-attr {
         font-size: 14px; color: rgba(255,255,255,0.4); font-weight: 500; position: relative;
     }
@@ -1905,10 +1913,11 @@
     </section>
 
     <!-- QUOTE -->
-    <div class="quote-section">
+    <div class="quote-section" id="quoteSection">
         <div class="quote-mark">&ldquo;</div>
-        <blockquote class="quote-text">The false binary is the enemy. Architecture is the answer.</blockquote>
+        <blockquote class="quote-text" id="quoteText">Culture is not a program. It is an operating system.</blockquote>
         <p class="quote-attr">&mdash; Patrick M. Hodgson Sr.</p>
+        <p class="quote-source" id="quoteSource">The Authenticity Algorithm &mdash; Introduction</p>
     </div>
 
     <!-- ============================================================
@@ -2409,6 +2418,34 @@
                 y: 100,
                 opacity: 0.3
             });
+        }
+
+        // Quote Rotator
+        var quotes = [
+            { text: "Culture is not a program. It is an operating system.", source: "The Authenticity Algorithm \u2014 Introduction" },
+            { text: "Authenticity without discipline is inspiration that fades by Monday.", source: "The Authenticity Algorithm \u2014 Introduction" },
+            { text: "Purpose is not something you find. It is something you recognize.", source: "The Authenticity Algorithm \u2014 Your Purpose" },
+            { text: "People must matter more than the work. And the work must be designed to prove it.", source: "The Authenticity Algorithm \u2014 Your Purpose" },
+            { text: "Ownership is not a behavior you perform. It is who you are.", source: "The Authenticity Algorithm \u2014 Ownership" },
+            { text: "I manage my work. My work does not manage me.", source: "The Authenticity Algorithm \u2014 The Lean Standard" },
+            { text: "Preparation is not about being busy. It is about intent.", source: "The Authenticity Algorithm \u2014 Preparation" },
+            { text: "Your moment does not arrive with an invitation. It does not ask if you are ready.", source: "The Authenticity Algorithm \u2014 Your Moment" }
+        ];
+        var quoteIndex = 0;
+        var quoteText = document.getElementById('quoteText');
+        var quoteSource = document.getElementById('quoteSource');
+        if (quoteText && quoteSource) {
+            setInterval(function() {
+                quoteText.classList.add('fading');
+                quoteSource.classList.add('fading');
+                setTimeout(function() {
+                    quoteIndex = (quoteIndex + 1) % quotes.length;
+                    quoteText.textContent = quotes[quoteIndex].text;
+                    quoteSource.innerHTML = quotes[quoteIndex].source;
+                    quoteText.classList.remove('fading');
+                    quoteSource.classList.remove('fading');
+                }, 600);
+            }, 7000);
         }
     });
     </script>
