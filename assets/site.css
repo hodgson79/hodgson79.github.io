@@ -247,3 +247,5 @@ p { margin: 0 0 1em; }
 .registry-card .form-note { color: var(--ink-3); }
 .form-note a, .footer-legal a, .prose a, .lead a { text-decoration: underline; }
 .section-navy .lead a { color: var(--pacific); }
+.form-success { margin: 0; font-weight: 600; color: #1D5C3A; background: #E6F4EC; border: 1px solid #A8D5B9; border-radius: 10px; padding: 12px 14px; grid-column: 1 / -1; }
+.section-navy .form-success { color: #1D5C3A; }

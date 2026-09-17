@@ -36,3 +36,22 @@ if (topicSelect && topic) {
   const opt = [...topicSelect.options].find((o) => o.text.startsWith(topic));
   if (opt) topicSelect.value = opt.value;
 }
+
+// Kit forms: post to Kit without leaving the page, then show the confirm-your-email message.
+// Without JavaScript the form still posts natively to the same Kit address.
+document.querySelectorAll("form[data-kit]").forEach((form) => {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const button = form.querySelector('button[type="submit"]');
+    const success = form.querySelector(".form-success");
+    button.disabled = true;
+    try {
+      await fetch(form.action, { method: "POST", mode: "no-cors", body: new URLSearchParams(new FormData(form)) });
+      form.querySelectorAll("input, button, fieldset").forEach((el) => { if (!el.closest(".form-note")) el.disabled = true; });
+      if (success) { success.hidden = false; success.focus?.(); }
+    } catch {
+      button.disabled = false;
+      if (success) { success.hidden = false; success.textContent = "That did not go through. Please try again, or email info@authenticityalgorithm.com."; }
+    }
+  });
+});
