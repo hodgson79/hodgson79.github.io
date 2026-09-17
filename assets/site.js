@@ -46,7 +46,9 @@ document.querySelectorAll("form[data-kit]").forEach((form) => {
     const success = form.querySelector(".form-success");
     button.disabled = true;
     try {
-      await fetch(form.action, { method: "POST", mode: "no-cors", body: new URLSearchParams(new FormData(form)) });
+      // Kit answers a successful signup with a 302 to its success page; don't follow it.
+      const res = await fetch(form.action, { method: "POST", redirect: "manual", body: new URLSearchParams(new FormData(form)) });
+      if (!(res.type === "opaqueredirect" || res.ok)) throw new Error("Kit returned " + res.status);
       form.querySelectorAll("input, button, fieldset").forEach((el) => { if (!el.closest(".form-note")) el.disabled = true; });
       if (success) { success.hidden = false; success.focus?.(); }
     } catch {
